@@ -12,4 +12,5 @@ export const InteractionContainerWrapper = styled.div`
   width: 100%;
   height: 1000px;
   background-color: white;
+  padding-top: 100px;
 `;
