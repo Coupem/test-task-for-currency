@@ -1,41 +1,74 @@
-import React, { useState } from 'react';
-import { Table, Badge } from 'react-bootstrap';
-import { ValidCourseContainer } from './styledComponents';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Table } from 'react-bootstrap';
+import {
+  ValidCourseContainer,
+  TitleCourseComponent,
+  ButtonBest,
+} from './styledComponents';
+import FavoriteCurrencyComponent from './FavoriteCurrencyComponent';
+import { favoriteCurrenciesKey } from '../constants';
+import {
+  getLocalStorageItem,
+  setLocalStorageItem,
+} from '../../../common/utils/loacalStoreg';
+import {
+  tableStyles,
+  paddingStyle,
+  listStyles,
+  listStylesEnd,
+  listBuyStyles,
+} from './styles';
 
 function CoursePage({ loadedCurrency }) {
-  const [bestCurrency, setBestCurrency] = useState([]);
   const filteredCurrency = loadedCurrency.filter((item) => item.ccy !== 'UAH');
+  const [favoriteCurrencies, setFavoriteCurrencies] = useState({});
 
-  const handleClickSave = (selectedCurrency) => {
-    setBestCurrency([{ ...selectedCurrency }]);
+  const handleClickSave = ({ ccy, buy, sale }) => {
+    if (favoriteCurrencies[ccy]) {
+      return;
+    }
+
+    const updatedCurrencies = {
+      ...favoriteCurrencies,
+      [ccy]: { ccy, buy, sale },
+    };
+
+    setFavoriteCurrencies(updatedCurrencies);
+    setLocalStorageItem(favoriteCurrenciesKey, updatedCurrencies);
   };
+
+  useEffect(() => {
+    const currencies = getLocalStorageItem(favoriteCurrenciesKey);
+
+    setFavoriteCurrencies(currencies || {});
+  }, []);
 
   return (
     <ValidCourseContainer>
-      <Table
-        className="mt-5 w-75 m-auto"
-        striped
-        bordered
-        hover
-        variant="primary"
-      >
+      <TitleCourseComponent>Valid Course:</TitleCourseComponent>
+      <FavoriteCurrencyComponent favoriteCurrencies={favoriteCurrencies} />
+      <Table striped bordered hover style={tableStyles}>
         <thead>
           <tr>
-            <th>Currency</th>
-            <th>Buy</th>
-            <th>Sale</th>
+            <th style={paddingStyle}>Currency</th>
+            <th style={paddingStyle}>Buy</th>
+            <th style={paddingStyle}>Sale</th>
           </tr>
         </thead>
         <tbody>
-          {filteredCurrency.map((item) => (
-            <tr key={item.ccy}>
-              <td>{item.ccy}</td>
-              <td>{item.buy}</td>
-              <td>
-                {item.sale}
-                <Badge onClick={() => handleClickSave(item)} variant="dark">
-                  save
-                </Badge>
+          {filteredCurrency.map((itemCurrency) => (
+            <tr key={itemCurrency.ccy}>
+              <td style={listStyles}>{itemCurrency.ccy}</td>
+              <td style={listBuyStyles}>{itemCurrency.buy}</td>
+              <td style={listStylesEnd}>
+                {itemCurrency.sale}
+                <ButtonBest
+                  onClick={() => handleClickSave(itemCurrency)}
+                  variant="dark"
+                >
+                  best
+                </ButtonBest>
               </td>
             </tr>
           ))}
@@ -44,5 +77,16 @@ function CoursePage({ loadedCurrency }) {
     </ValidCourseContainer>
   );
 }
+
+CoursePage.propTypes = {
+  loadedCurrency: PropTypes.arrayOf(
+    PropTypes.shape({
+      ccy: PropTypes.string,
+      base_ccy: PropTypes.string,
+      buy: PropTypes.string,
+      sale: PropTypes.string,
+    })
+  ),
+};
 
 export default CoursePage;
