@@ -14,10 +14,10 @@ function ConverterPage({ loadedCurrency }) {
   };
 
   const handleInputValue = (event) => {
-    event.target.value = Math.max(0, parseInt(event.target.value, 10))
+    const inputValue = Math.max(0, parseInt(event.target.value, 10))
       .toString()
       .slice(0, 10);
-    setInputValue(event.target.value);
+    setInputValue(inputValue);
   };
 
   const filteredCurrency = loadedCurrency.filter(
