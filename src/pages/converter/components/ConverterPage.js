@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { ConverterContainer, TitleConverterContainer } from './styledComponets';
 import InputGroupComponent from './InputGroupComponent';
 import ConvertCurrencyComponent from './ConvertCurrencyComponent';
+import { defaultConvertedValue, defaultCurrency } from '../constants';
 
 function ConverterPage({ loadedCurrency }) {
   const [valueInput, setInputValue] = useState('');
-  const [convertedValueToNational, setConvertedValueToNational] = useState(1);
-  const [baseCurrency, setBaseCurrency] = useState('UAH');
+  const [convertedValueToNational, setConvertedValueToNational] = useState(
+    defaultConvertedValue
+  );
+  const [baseCurrency, setBaseCurrency] = useState(defaultCurrency);
 
   const handleChangeBaseCurrency = (currency) => {
     setBaseCurrency(currency);

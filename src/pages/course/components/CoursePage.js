@@ -11,7 +11,7 @@ import { favoriteCurrenciesKey } from '../constants';
 import {
   getLocalStorageItem,
   setLocalStorageItem,
-} from '../../../common/utils/loacalStoreg';
+} from '../../../common/utils/loacalStorage';
 import {
   tableStyles,
   paddingStyle,

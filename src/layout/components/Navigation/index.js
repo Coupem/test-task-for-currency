@@ -7,26 +7,24 @@ function Navigation({ handleClickCourse, handleClickConverter }) {
   const [converterActive, setConverterActive] = useState(true);
   const [courseActive, setCourseActive] = useState(false);
 
+  const onClickButtonConverter = () => {
+    handleClickConverter();
+    setConverterActive(true);
+    setCourseActive(false);
+  };
+
+  const onClickButtonCourse = () => {
+    handleClickCourse();
+    setConverterActive(false);
+    setCourseActive(true);
+  };
+
   return (
     <NavigationComponent>
-      <NavButton
-        primary={converterActive}
-        onClick={() => {
-          handleClickConverter();
-          setConverterActive(true);
-          setCourseActive(false);
-        }}
-      >
+      <NavButton primary={converterActive} onClick={onClickButtonConverter}>
         Converter Button
       </NavButton>
-      <NavButton
-        primary={courseActive}
-        onClick={() => {
-          handleClickCourse();
-          setConverterActive(false);
-          setCourseActive(true);
-        }}
-      >
+      <NavButton primary={courseActive} onClick={onClickButtonCourse}>
         Course Button
       </NavButton>
     </NavigationComponent>

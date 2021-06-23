@@ -5,12 +5,11 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import { CoursePage } from '../pages/course';
 import { ConverterPage } from '../pages/converter';
+import { UKRAINIAN_CURRENCY, URL_CURRENCY_REQUEST } from './constants';
 import {
   MainContentWrapper,
   InteractionContainerWrapper,
 } from './styledComponents';
-
-const UKRAINIAN_CURRENCY = { ccy: 'UAH', base_ccy: 'UAH', buy: '1', sale: '1' };
 
 function MainLayout() {
   const [loadedCurrency, setLoadedCurrency] = useState(null);
@@ -28,12 +27,10 @@ function MainLayout() {
   };
 
   useEffect(() => {
-    axios
-      .get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
-      .then((res) => {
-        setLoadedCurrency([...res.data, { ...UKRAINIAN_CURRENCY }]);
-        setIsLoading(false);
-      });
+    axios.get(URL_CURRENCY_REQUEST).then((res) => {
+      setLoadedCurrency([...res.data, { ...UKRAINIAN_CURRENCY }]);
+      setIsLoading(false);
+    });
   }, []);
 
   return (

@@ -12,9 +12,11 @@ function FavoriteCurrencyComponent({ favoriteCurrencies }) {
   return (
     <FavoriteCurrencyComponentWrapper>
       <TitleFavoriteCurrency>Favorite Currency:</TitleFavoriteCurrency>
+
       {Object.values(favoriteCurrencies).length === 0 && (
         <NoFavoriteCurrency>NO CURRENCY</NoFavoriteCurrency>
       )}
+
       {Object.values(favoriteCurrencies).map((breakpoint) => (
         <ListGroup key={breakpoint.ccy} style={listGroupStyles}>
           <ListGroup.Item>Currency: {breakpoint.ccy}</ListGroup.Item>
