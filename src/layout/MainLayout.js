@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import { CoursePage } from '../pages/course';
+import { ConverterPage } from '../pages/converter';
 import {
   MainContentWrapper,
   InteractionContainerWrapper,
@@ -14,6 +15,17 @@ const UKRAINIAN_CURRENCY = { ccy: 'UAH', base_ccy: 'UAH', buy: '1', sale: '1' };
 function MainLayout() {
   const [loadedCurrency, setLoadedCurrency] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [showConverter, setShowConverter] = useState(true);
+  const [showCourse, setShowCourse] = useState(false);
+
+  const handleClickConverter = () => {
+    setShowConverter(true);
+    setShowCourse(false);
+  };
+  const handleClickCourse = () => {
+    setShowConverter(false);
+    setShowCourse(true);
+  };
 
   useEffect(() => {
     axios
@@ -28,15 +40,24 @@ function MainLayout() {
     <React.Fragment>
       <Header />
       <MainContentWrapper>
-        <Navigation />
+        <Navigation
+          handleClickCourse={handleClickCourse}
+          handleClickConverter={handleClickConverter}
+        />
         <InteractionContainerWrapper>
-          {/* {!isLoading && <ConverterPage loadedCurrency={loadedCurrency} />} */}
-          {!isLoading && <CoursePage loadedCurrency={loadedCurrency} />}
+          {!isLoading && showConverter && (
+            <ConverterPage loadedCurrency={loadedCurrency} />
+          )}
+          {!isLoading && showCourse && (
+            <CoursePage loadedCurrency={loadedCurrency} />
+          )}
         </InteractionContainerWrapper>
       </MainContentWrapper>
       <Footer />
     </React.Fragment>
   );
 }
+
+MainLayout.propTypes = {};
 
 export default MainLayout;

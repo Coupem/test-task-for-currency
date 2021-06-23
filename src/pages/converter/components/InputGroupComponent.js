@@ -1,41 +1,62 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Dropdown,
   DropdownButton,
   FormControl,
   InputGroup,
 } from 'react-bootstrap';
+import {
+  inputGroupStyles,
+  dropdownButtonStyles,
+  formControlStyles,
+} from './styles';
 
-export function InputGroupComponent({
+function InputGroupComponent({
   loadedCurrency,
   baseCurrency,
   handleChangeCurrency,
   handleChangeInput,
 }) {
   return (
-    <InputGroup className="m-auto w-25 pt-5">
+    <InputGroup className="m-auto" style={inputGroupStyles}>
       <FormControl
         onChange={handleChangeInput}
-        aria-label="Text input with dropdown button"
+        placeholder="Enter quantity"
         type="number"
-        maxLength={5}
-        size="sm"
+        style={formControlStyles}
       />
       <DropdownButton
-        className="w-25"
+        style={dropdownButtonStyles}
         title={baseCurrency}
         onSelect={handleChangeCurrency}
       >
-        {loadedCurrency.map((item) => (
+        {loadedCurrency.map((itemCurrency) => (
           <Dropdown.Item
-            key={item.ccy}
-            eventKey={item.ccy}
-            active={baseCurrency === item.ccy}
+            key={itemCurrency.ccy}
+            eventKey={itemCurrency.ccy}
+            active={baseCurrency === itemCurrency.ccy}
           >
-            {item.ccy}
+            {itemCurrency.ccy}
           </Dropdown.Item>
         ))}
       </DropdownButton>
     </InputGroup>
   );
 }
+
+InputGroupComponent.propTypes = {
+  handleChangeCurrency: PropTypes.func,
+  handleChangeInput: PropTypes.func,
+  baseCurrency: PropTypes.string,
+  loadedCurrency: PropTypes.arrayOf(
+    PropTypes.shape({
+      ccy: PropTypes.string,
+      base_ccy: PropTypes.string,
+      buy: PropTypes.string,
+      sale: PropTypes.string,
+    })
+  ),
+};
+
+export default InputGroupComponent;
