@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { ConverterContainer } from './styledComponets';
-import { InputGroupComponent } from './InputGroupComponent';
-import { ConvertCurrencyComponent } from './ConvertCurrencyComponent';
+import PropTypes from 'prop-types';
+import { ConverterContainer, TitleConverterContainer } from './styledComponets';
+import InputGroupComponent from './InputGroupComponent';
+import ConvertCurrencyComponent from './ConvertCurrencyComponent';
 
 function ConverterPage({ loadedCurrency }) {
   const [valueInput, setInputValue] = useState('');
   const [convertedValueToNational, setConvertedValueToNational] = useState(1);
   const [baseCurrency, setBaseCurrency] = useState('UAH');
 
-  const handleChangeBaseCurrency = (event) => {
-    setBaseCurrency(event);
+  const handleChangeBaseCurrency = (currency) => {
+    setBaseCurrency(currency);
   };
 
-  const handleInputValue = (e) => {
-    e.target.value = Math.max(0, parseInt(e.target.value, 10))
+  const handleInputValue = (event) => {
+    event.target.value = Math.max(0, parseInt(event.target.value, 10))
       .toString()
       .slice(0, 10);
-    setInputValue(e.target.value);
+    setInputValue(event.target.value);
   };
 
   const filteredCurrency = loadedCurrency.filter(
@@ -24,23 +25,26 @@ function ConverterPage({ loadedCurrency }) {
   );
 
   useEffect(() => {
-    let value = 1;
+    let countValue = 1;
 
     if (baseCurrency === 'BTC') {
       // converted to USD
-      const { buy } = loadedCurrency.find((item) => item.ccy === 'USD');
-      value = valueInput * buy;
+      const { buy } = loadedCurrency.find(
+        (itemCurrency) => itemCurrency.ccy === 'USD'
+      );
+      countValue = valueInput * buy;
     }
 
-    loadedCurrency.forEach((item) => {
-      if (baseCurrency === item.ccy) {
-        setConvertedValueToNational(value * valueInput * item.buy);
+    loadedCurrency.forEach((itemCurrency) => {
+      if (baseCurrency === itemCurrency.ccy) {
+        setConvertedValueToNational(countValue * valueInput * itemCurrency.buy);
       }
     });
   });
 
   return (
     <ConverterContainer>
+      <TitleConverterContainer>Converter:</TitleConverterContainer>
       <InputGroupComponent
         loadedCurrency={loadedCurrency}
         baseCurrency={baseCurrency}
@@ -54,5 +58,16 @@ function ConverterPage({ loadedCurrency }) {
     </ConverterContainer>
   );
 }
+
+ConverterPage.propTypes = {
+  loadedCurrency: PropTypes.arrayOf(
+    PropTypes.shape({
+      ccy: PropTypes.string,
+      base_ccy: PropTypes.string,
+      buy: PropTypes.string,
+      sale: PropTypes.string,
+    })
+  ),
+};
 
 export default ConverterPage;
