@@ -2,14 +2,14 @@ import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import {
-  FavoriteCurrencyComponentWrapper,
+  FavoriteCurrencyWrapper,
   NoFavoriteCurrency,
   TitleFavoriteCurrency,
+  ListGroupContainer,
 } from '../../styled';
-// import { listGroupStyles } from './styles';
 
 const FavoriteCurrency = ({ favoriteCurrencies }) => (
-  <FavoriteCurrencyComponentWrapper>
+  <FavoriteCurrencyWrapper>
     <TitleFavoriteCurrency>Favorite Currency:</TitleFavoriteCurrency>
 
     {Object.values(favoriteCurrencies).length === 0 && (
@@ -17,13 +17,13 @@ const FavoriteCurrency = ({ favoriteCurrencies }) => (
     )}
 
     {Object.values(favoriteCurrencies).map((breakpoint) => (
-      <ListGroup key={breakpoint.ccy}>
+      <ListGroupContainer key={breakpoint.ccy}>
         <ListGroup.Item>Currency: {breakpoint.ccy}</ListGroup.Item>
         <ListGroup.Item>Buy: {breakpoint.buy}</ListGroup.Item>
         <ListGroup.Item>Sale: {breakpoint.sale}</ListGroup.Item>
-      </ListGroup>
+      </ListGroupContainer>
     ))}
-  </FavoriteCurrencyComponentWrapper>
+  </FavoriteCurrencyWrapper>
 );
 
 FavoriteCurrency.propTypes = {

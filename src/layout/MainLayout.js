@@ -11,7 +11,11 @@ import {
   DEFAULT_URL,
   COURSE_PAGE,
 } from './constants';
-import { InteractionContainerWrapper, MainContentWrapper } from '../styled';
+import {
+  InteractionContainerWrapper,
+  MainContentWrapper,
+  MainLayoutContainer,
+} from '../styled';
 
 const MainLayout = () => {
   const [loadedCurrency, setLoadedCurrency] = useState(null);
@@ -38,11 +42,15 @@ const MainLayout = () => {
   }, []);
 
   return (
-    <React.Fragment>
+    <MainLayoutContainer fluid>
       <Header />
       <MainContentWrapper>
-        <Navigation showConverter={showConverter} showCourse={showCourse} />
-        <InteractionContainerWrapper>
+        <Navigation
+          sm={2}
+          showConverter={showConverter}
+          showCourse={showCourse}
+        />
+        <InteractionContainerWrapper sm={10}>
           {!isLoading && showConverter && (
             <ConverterPage loadedCurrency={loadedCurrency} />
           )}
@@ -52,7 +60,7 @@ const MainLayout = () => {
         </InteractionContainerWrapper>
       </MainContentWrapper>
       <Footer />
-    </React.Fragment>
+    </MainLayoutContainer>
   );
 };
 

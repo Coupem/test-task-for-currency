@@ -1,8 +1,6 @@
 import styled from 'styled-components';
+import { Col } from 'react-bootstrap';
 
-export const NavigationComponent = styled.div`
-  width: 350px;
-  height: 100%;
-  background-color: #086d9f;
-  padding-top: 50px;
+export const NavigationComponent = styled(Col)`
+  padding: 50px 0 0 0;
 `;

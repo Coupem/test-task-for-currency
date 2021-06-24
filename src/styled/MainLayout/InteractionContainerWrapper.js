@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { Col } from 'react-bootstrap';
 
-export const InteractionContainerWrapper = styled.div`
+export const InteractionContainerWrapper = styled(Col)`
   border-radius: 25px;
-  width: 100%;
   height: 1000px;
   background-color: white;
   padding-top: 100px;

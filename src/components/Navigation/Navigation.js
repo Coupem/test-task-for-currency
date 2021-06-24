@@ -15,10 +15,10 @@ const Navigation = ({ showConverter, showCourse }) => {
   return (
     <NavigationComponent>
       <NavButton primary={showConverter} onClick={onClickButtonConverter}>
-        Converter Button
+        Converter
       </NavButton>
       <NavButton primary={showCourse} onClick={onClickButtonCourse}>
-        Course Button
+        Course
       </NavButton>
     </NavigationComponent>
   );

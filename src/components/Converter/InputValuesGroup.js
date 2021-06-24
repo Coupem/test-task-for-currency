@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Dropdown,
-  DropdownButton,
-  FormControl,
-  InputGroup,
-} from 'react-bootstrap';
+import { Dropdown, DropdownButton, FormControl } from 'react-bootstrap';
+import { InputGroupContainer } from '../../styled';
 
 const InputValuesGroup = ({
   loadedCurrency,
@@ -14,8 +10,9 @@ const InputValuesGroup = ({
   handleChangeInput,
   inputValue,
 }) => (
-  <InputGroup className="m-auto">
+  <InputGroupContainer className="m-auto">
     <FormControl
+      className="font-weight-bold"
       onChange={handleChangeInput}
       value={inputValue}
       placeholder="Enter quantity"
@@ -32,7 +29,7 @@ const InputValuesGroup = ({
         </Dropdown.Item>
       ))}
     </DropdownButton>
-  </InputGroup>
+  </InputGroupContainer>
 );
 
 InputValuesGroup.propTypes = {

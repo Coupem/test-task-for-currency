@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Table } from 'react-bootstrap';
-// import {
-//   tableStylesCon,
-//   paddingStyleCon,
-//   lineStylesCurrency,
-//   lineStylesValue,
-// } from './styles';
+import { TableCurrencyContainer } from '../../styled';
+
 const ConvertCurrency = ({ listCurrency, convertedValue }) => (
-  <Table striped bordered hover>
+  <TableCurrencyContainer striped bordered hover>
     <thead>
       <tr>
         <th>Converted Value</th>
@@ -18,12 +13,14 @@ const ConvertCurrency = ({ listCurrency, convertedValue }) => (
     <tbody>
       {listCurrency.map((itemCurrency) => (
         <tr key={itemCurrency.ccy}>
-          <td>{(convertedValue / itemCurrency.sale).toFixed(3)}</td>
-          <td>{itemCurrency.ccy}</td>
+          <td className="p-lg-3">
+            {(convertedValue / itemCurrency.sale).toFixed(3)}
+          </td>
+          <td className="w-25 p-lg-2">{itemCurrency.ccy}</td>
         </tr>
       ))}
     </tbody>
-  </Table>
+  </TableCurrencyContainer>
 );
 
 ConvertCurrency.propTypes = {

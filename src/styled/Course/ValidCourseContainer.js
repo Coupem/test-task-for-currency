@@ -7,4 +7,5 @@ export const ValidCourseContainer = styled.div`
   border: 5px solid #086d9f;
   border-radius: 15px;
   box-shadow: 0 -3px 29px -4px;
+  font-weight: 600;
 `;

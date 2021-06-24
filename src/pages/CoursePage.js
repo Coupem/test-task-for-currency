@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Table } from 'react-bootstrap';
+import { favoriteCurrenciesKey } from './constants';
+
 import {
   ValidCourseContainer,
   TitleCourseComponent,
   ButtonBest,
+  ListTableCurrency,
 } from '../styled';
 import { FavoriteCurrency } from '../components';
-import { favoriteCurrenciesKey } from './constants';
+
 import {
   getLocalStorageItem,
   setLocalStorageItem,
 } from '../common/utils/loacalStorage';
-// import {
-//   tableStyles,
-//   paddingStyle,
-//   listStyles,
-//   listStylesEnd,
-//   listBuyStyles,
-// } from './styles';
 
 const CoursePage = ({ loadedCurrency }) => {
   const filteredCurrency = loadedCurrency.filter((item) => item.ccy !== 'UAH');
@@ -48,7 +43,7 @@ const CoursePage = ({ loadedCurrency }) => {
     <ValidCourseContainer>
       <TitleCourseComponent>Valid Course:</TitleCourseComponent>
       <FavoriteCurrency favoriteCurrencies={favoriteCurrencies} />
-      <Table striped bordered hover>
+      <ListTableCurrency striped bordered hover className="p-lg-3 ">
         <thead>
           <tr>
             <th>Currency</th>
@@ -59,7 +54,7 @@ const CoursePage = ({ loadedCurrency }) => {
         <tbody>
           {filteredCurrency.map((itemCurrency) => (
             <tr key={itemCurrency.ccy}>
-              <td>{itemCurrency.ccy}</td>
+              <td className="col-3 w-25">{itemCurrency.ccy}</td>
               <td>{itemCurrency.buy}</td>
               <td>
                 {itemCurrency.sale}
@@ -73,7 +68,7 @@ const CoursePage = ({ loadedCurrency }) => {
             </tr>
           ))}
         </tbody>
-      </Table>
+      </ListTableCurrency>
     </ValidCourseContainer>
   );
 };
