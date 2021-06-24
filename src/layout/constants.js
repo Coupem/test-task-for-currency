@@ -7,3 +7,7 @@ export const UKRAINIAN_CURRENCY = {
 
 export const URL_CURRENCY_REQUEST =
   'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
+
+export const DEFAULT_URL = 'http://localhost:3000/';
+
+export const COURSE_PAGE = 'http://localhost:3000/course';
