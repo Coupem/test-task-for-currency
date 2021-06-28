@@ -5,7 +5,7 @@ import { ConverterContainer, TitleConverterContainer } from '../styled';
 import { InputValuesGroup, ConvertCurrency } from '../components';
 import { defaultConvertedValue, defaultCurrency } from '../constants';
 
-const ConverterPage = ({ loadedCurrency }) => {
+const ConverterPage = ({ loadedCurrency, isLoading }) => {
   const [inputValue, setInputValue] = useState('');
   const [convertedValueToNational, setConvertedValueToNational] = useState(
     defaultConvertedValue
@@ -48,6 +48,10 @@ const ConverterPage = ({ loadedCurrency }) => {
     });
   });
 
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <ConverterContainer>
       <TitleConverterContainer>Converter:</TitleConverterContainer>
@@ -67,6 +71,7 @@ const ConverterPage = ({ loadedCurrency }) => {
 };
 
 ConverterPage.propTypes = {
+  isLoading: PropTypes.bool,
   loadedCurrency: PropTypes.arrayOf(
     PropTypes.shape({
       ccy: PropTypes.string,

@@ -15,7 +15,7 @@ import {
   setLocalStorageItem,
 } from '../utils/loacalStorage';
 
-const CoursePage = ({ loadedCurrency }) => {
+const CoursePage = ({ loadedCurrency, isLoading }) => {
   const filteredCurrency = loadedCurrency.filter((item) => item.ccy !== 'UAH');
   const [favoriteCurrencies, setFavoriteCurrencies] = useState({});
 
@@ -38,6 +38,10 @@ const CoursePage = ({ loadedCurrency }) => {
 
     setFavoriteCurrencies(currencies || {});
   }, []);
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <ValidCourseContainer>
@@ -74,6 +78,7 @@ const CoursePage = ({ loadedCurrency }) => {
 };
 
 CoursePage.propTypes = {
+  isLoading: PropTypes.bool,
   loadedCurrency: PropTypes.arrayOf(
     PropTypes.shape({
       ccy: PropTypes.string,

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { COURSE_PAGE, DEFAULT_URL, UKRAINIAN_CURRENCY } from './constants';
+import { UKRAINIAN_CURRENCY } from './constants';
 import {
   InteractionContainerWrapper,
   MainContentWrapper,
@@ -14,11 +14,8 @@ import CoursePage from './pages/CoursePage';
 import { getCurrencyRequest } from './api';
 
 const App = () => {
-  const { pathname } = useLocation();
-
-  const [loadedCurrency, setLoadedCurrency] = useState(null);
+  const [loadedCurrency, setLoadedCurrency] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [showConverter, setShowConverter] = useState(true);
 
   useEffect(() => {
     getCurrencyRequest.then((res) => {
@@ -27,29 +24,37 @@ const App = () => {
     });
   }, []);
 
-  useEffect(() => {
-    if (pathname === DEFAULT_URL) {
-      setShowConverter(true);
-    }
-
-    if (pathname === COURSE_PAGE) {
-      setShowConverter(false);
-    }
-  }, [pathname]);
-
   return (
     <MainLayoutContainer fluid>
       <Header />
       <MainContentWrapper>
-        <Navigation sm={2} showConverter={showConverter} />
-        <InteractionContainerWrapper sm={10}>
-          {!isLoading && showConverter && (
-            <ConverterPage loadedCurrency={loadedCurrency} />
-          )}
-          {!isLoading && !showConverter && (
-            <CoursePage loadedCurrency={loadedCurrency} />
-          )}
-        </InteractionContainerWrapper>
+        <Router>
+          <Navigation sm={2} />
+          <InteractionContainerWrapper sm={10}>
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={() => (
+                  <ConverterPage
+                    isLoading={isLoading}
+                    loadedCurrency={loadedCurrency}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/course"
+                render={() => (
+                  <CoursePage
+                    isLoading={isLoading}
+                    loadedCurrency={loadedCurrency}
+                  />
+                )}
+              />
+            </Switch>
+          </InteractionContainerWrapper>
+        </Router>
       </MainContentWrapper>
       <Footer />
     </MainLayoutContainer>
