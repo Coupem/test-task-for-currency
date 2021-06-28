@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+
 import { ConverterContainer, TitleConverterContainer } from '../styled';
 import { InputValuesGroup, ConvertCurrency } from '../components';
+import { defaultConvertedValue, defaultCurrency } from '../constants';
 
-import { defaultConvertedValue, defaultCurrency } from './constants';
-
-function ConverterPage({ loadedCurrency }) {
+const ConverterPage = ({ loadedCurrency }) => {
   const [inputValue, setInputValue] = useState('');
   const [convertedValueToNational, setConvertedValueToNational] = useState(
     defaultConvertedValue
@@ -16,8 +16,8 @@ function ConverterPage({ loadedCurrency }) {
     setBaseCurrency(currency);
   };
 
-  const handleInputValue = (e) => {
-    const currentInputValue = e.target.value;
+  const handleInputValue = (eventInput) => {
+    const currentInputValue = eventInput.target.value;
 
     if (currentInputValue.length >= 10) {
       return;
@@ -64,13 +64,13 @@ function ConverterPage({ loadedCurrency }) {
       />
     </ConverterContainer>
   );
-}
+};
 
 ConverterPage.propTypes = {
   loadedCurrency: PropTypes.arrayOf(
     PropTypes.shape({
       ccy: PropTypes.string,
-      base_ccy: PropTypes.string,
+      baseCcy: PropTypes.string,
       buy: PropTypes.string,
       sale: PropTypes.string,
     })

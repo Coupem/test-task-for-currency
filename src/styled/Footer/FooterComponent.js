@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-
 import { Col } from 'react-bootstrap';
+import { footerSmallScreen } from '../media';
 
 export const FooterComponent = styled(Col)`
   background-color: #086d9f;
@@ -11,7 +11,7 @@ export const FooterComponent = styled(Col)`
   color: white;
   font-size: 20px;
   margin-top: 20px;
-   @media (max-width: 768px) {
-     font-size: 25px;
-     margin-top: 150px;
+  @media (max-width: 768px) {
+    ${footerSmallScreen};
+  }
 `;

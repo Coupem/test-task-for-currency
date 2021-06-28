@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Table } from 'react-bootstrap';
+import { fontSmallScreen } from '../media';
 
 export const ListTableCurrency = styled(Table)`
   max-width: 800px;
@@ -9,5 +10,6 @@ export const ListTableCurrency = styled(Table)`
   box-shadow: 5px 9px 30px -6px;
   position: relative;
   @media (max-width: 768px) {
-     font-size: 15px;
+    ${fontSmallScreen}
+  }
 `;

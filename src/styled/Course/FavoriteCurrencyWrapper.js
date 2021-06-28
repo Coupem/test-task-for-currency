@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { blockSmallScreen } from '../media';
 
 export const FavoriteCurrencyWrapper = styled.div`
   display: flex;
@@ -10,6 +11,6 @@ export const FavoriteCurrencyWrapper = styled.div`
   margin-top: 40px;
   border-radius: 5px;
   @media (max-width: 768px) {
-    display: block;
+    ${blockSmallScreen}
   }
 `;

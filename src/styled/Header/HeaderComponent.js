@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Row } from 'react-bootstrap';
+import { headerSmallScreen } from '../media';
 
 export const HeaderComponent = styled(Row)`
   display: flex;
@@ -12,5 +13,6 @@ export const HeaderComponent = styled(Row)`
   width: 100%;
   height: 150px;
   @media (max-width: 768px) {
-     font-size: 25px;
+    ${headerSmallScreen}
+  }
 `;

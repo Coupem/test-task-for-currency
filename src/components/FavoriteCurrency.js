@@ -1,12 +1,13 @@
 import React from 'react';
-import { ListGroup } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+
+import { ListGroup } from 'react-bootstrap';
 import {
   FavoriteCurrencyWrapper,
   NoFavoriteCurrency,
   TitleFavoriteCurrency,
   ListGroupContainer,
-} from '../../styled';
+} from '../styled';
 
 const FavoriteCurrency = ({ favoriteCurrencies }) => (
   <FavoriteCurrencyWrapper>

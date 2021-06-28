@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { favoriteCurrenciesKey } from './constants';
 
+import { favoriteCurrenciesKey } from '../constants';
 import {
   ValidCourseContainer,
   TitleCourseComponent,
@@ -13,7 +13,7 @@ import { FavoriteCurrency } from '../components';
 import {
   getLocalStorageItem,
   setLocalStorageItem,
-} from '../common/utils/loacalStorage';
+} from '../utils/loacalStorage';
 
 const CoursePage = ({ loadedCurrency }) => {
   const filteredCurrency = loadedCurrency.filter((item) => item.ccy !== 'UAH');
@@ -77,7 +77,7 @@ CoursePage.propTypes = {
   loadedCurrency: PropTypes.arrayOf(
     PropTypes.shape({
       ccy: PropTypes.string,
-      base_ccy: PropTypes.string,
+      baseCcy: PropTypes.string,
       buy: PropTypes.string,
       sale: PropTypes.string,
     })

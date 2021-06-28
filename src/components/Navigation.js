@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
-import { NavButton, NavigationComponent } from '../../styled';
+import { NavButton, NavigationComponent } from '../styled';
 
-const Navigation = ({ showConverter, showCourse }) => {
+const Navigation = ({ showConverter }) => {
+  const history = useHistory();
+
   const onClickButtonConverter = () => {
-    window.location.href = '/';
+    history.push('/');
   };
 
   const onClickButtonCourse = () => {
-    window.location.href = '/course';
+    history.push('/course');
   };
 
   return (
@@ -17,7 +20,7 @@ const Navigation = ({ showConverter, showCourse }) => {
       <NavButton primary={showConverter} onClick={onClickButtonConverter}>
         Converter
       </NavButton>
-      <NavButton primary={showCourse} onClick={onClickButtonCourse}>
+      <NavButton primary={!showConverter} onClick={onClickButtonCourse}>
         Course
       </NavButton>
     </NavigationComponent>
@@ -26,7 +29,6 @@ const Navigation = ({ showConverter, showCourse }) => {
 
 Navigation.propTypes = {
   showConverter: PropTypes.bool,
-  showCourse: PropTypes.bool,
 };
 
 export default Navigation;

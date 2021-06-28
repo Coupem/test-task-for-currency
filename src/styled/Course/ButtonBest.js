@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { buttonBestSmallScreen } from '../media';
 
 export const ButtonBest = styled.button`
   &:hover {
@@ -13,9 +14,6 @@ export const ButtonBest = styled.button`
   right: 15px;
   border: 1px solid #086d9f;
   @media (max-width: 768px) {
-    font-size: 1px;
-    background-color: #086d9f;
-    height: 15px;
-    width: 10px;
+    ${buttonBestSmallScreen}
   }
 `;
