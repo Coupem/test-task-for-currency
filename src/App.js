@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { UKRAINIAN_CURRENCY } from './constants';
 import {
   InteractionContainerWrapper,
   MainContentWrapper,
@@ -11,18 +11,14 @@ import {
 import { Footer, Header, Navigation } from './components';
 import ConverterPage from './pages/ConverterPage';
 import CoursePage from './pages/CoursePage';
-import { getCurrencyRequest } from './api';
+import { getCurrency } from './ducks/reducers/currency';
 
 const App = () => {
-  const [loadedCurrency, setLoadedCurrency] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getCurrencyRequest.then((res) => {
-      setLoadedCurrency([...res, { ...UKRAINIAN_CURRENCY }]);
-      setIsLoading(false);
-    });
-  }, []);
+    dispatch(getCurrency());
+  }, [dispatch]);
 
   return (
     <MainLayoutContainer fluid>
@@ -32,26 +28,8 @@ const App = () => {
           <Navigation sm={2} />
           <InteractionContainerWrapper sm={10}>
             <Switch>
-              <Route
-                path="/"
-                exact
-                render={() => (
-                  <ConverterPage
-                    isLoading={isLoading}
-                    loadedCurrency={loadedCurrency}
-                  />
-                )}
-              />
-              <Route
-                exact
-                path="/course"
-                render={() => (
-                  <CoursePage
-                    isLoading={isLoading}
-                    loadedCurrency={loadedCurrency}
-                  />
-                )}
-              />
+              <Route path="/" exact render={() => <ConverterPage />} />
+              <Route exact path="/course" render={() => <CoursePage />} />
             </Switch>
           </InteractionContainerWrapper>
         </Router>

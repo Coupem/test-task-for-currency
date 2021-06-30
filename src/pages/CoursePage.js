@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
+import {
+  getLocalStorageItem,
+  setLocalStorageItem,
+} from '../utils/loacalStorage';
 import { favoriteCurrenciesKey } from '../constants';
 import {
   ValidCourseContainer,
@@ -10,28 +14,27 @@ import {
 } from '../styled';
 import { FavoriteCurrency } from '../components';
 
-import {
-  getLocalStorageItem,
-  setLocalStorageItem,
-} from '../utils/loacalStorage';
-
-const CoursePage = ({ loadedCurrency, isLoading }) => {
-  const filteredCurrency = loadedCurrency.filter((item) => item.ccy !== 'UAH');
+const CoursePage = () => {
   const [favoriteCurrencies, setFavoriteCurrencies] = useState({});
+
+  const { isLoadingCurrency: isLoading, currency: loadedCurrency } =
+    useSelector(({ responseData }) => responseData);
 
   const handleClickSave = ({ ccy, buy, sale }) => {
     if (favoriteCurrencies[ccy]) {
       return;
     }
-
     const updatedCurrencies = {
       ...favoriteCurrencies,
       [ccy]: { ccy, buy, sale },
     };
 
     setFavoriteCurrencies(updatedCurrencies);
+
     setLocalStorageItem(favoriteCurrenciesKey, updatedCurrencies);
   };
+
+  const filteredCurrency = loadedCurrency.filter((item) => item.ccy !== 'UAH');
 
   useEffect(() => {
     const currencies = getLocalStorageItem(favoriteCurrenciesKey);
@@ -77,16 +80,6 @@ const CoursePage = ({ loadedCurrency, isLoading }) => {
   );
 };
 
-CoursePage.propTypes = {
-  isLoading: PropTypes.bool,
-  loadedCurrency: PropTypes.arrayOf(
-    PropTypes.shape({
-      ccy: PropTypes.string,
-      baseCcy: PropTypes.string,
-      buy: PropTypes.string,
-      sale: PropTypes.string,
-    })
-  ),
-};
+CoursePage.propTypes = {};
 
 export default CoursePage;
