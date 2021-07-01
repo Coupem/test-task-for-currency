@@ -23,7 +23,11 @@ const InputValuesGroup = ({
   const handleInputValue = (formikHandleChange) => (event) => {
     handleChangeInput(event.target.value);
 
-    formikHandleChange(event);
+    const inputValidation = event;
+    if (inputValidation.target.value.length > 10) {
+      return;
+    }
+    formikHandleChange(inputValidation);
   };
 
   return (
@@ -32,6 +36,7 @@ const InputValuesGroup = ({
         initialValues={{ amount: '', currency: baseCurrency }}
         validate={(values) => {
           const errors = {};
+
           if (!values.amount) {
             errors.amount = 'Please input number value';
           } else if (!/\-?\d+(\.\d{0,})?/i.test(values.amount)) {
@@ -41,14 +46,13 @@ const InputValuesGroup = ({
         }}
         onSubmit={(values) => values}
       >
-        {({ values, errors, handleChange }) => (
+        {({ values, errors, handleChange, maxLength }) => (
           <form>
             <InputContainer
               placeholder="input value"
               type="number"
               name="amount"
               onChange={handleInputValue(handleChange)}
-              // onBlur={handleBlur}
               value={values.amount}
             />
 
