@@ -1,23 +1,28 @@
-export * from './MainLayout/MainContentWrapper';
-export * from './MainLayout/InteractionContainerWrapper';
 export * from './Footer/FooterComponent';
 export * from './Header/HeaderComponent';
-export * from './Navigation/NavButton';
-export * from './Navigation/NavigationComponent';
-export * from './Course/FavoriteCurrencyWrapper';
-export * from './Course/ButtonBest';
-export * from './Course/NoFavoriteCurrency';
-export * from './Course/TitleCourseComponent';
-export * from './Course/TitleFavoriteCurrency';
-export * from './Course/ValidCourseContainer';
-export * from './Converter/ConverterContainer';
-export * from './Converter/TitleConverterContainer';
-export * from './Course/ListTableCurrency';
-export * from './MainLayout/MainLayoutContainer';
-export * from './Converter/InputGroupContainer';
-export * from './Converter/TableCurrencyContainer';
-export * from './Course/ListGroupContainer';
-export * from './Converter/InputContainer';
-export * from './Converter/SelectContainer';
-export * from './Converter/ErrorContainer';
-export * from './Converter/OptionContainer';
+export { NavButton, NavigationComponent } from './Navigation/navigationStyled';
+export {
+  MainContentWrapper,
+  InteractionContainerWrapper,
+  MainLayoutContainer,
+} from './MainLayout/mainLayout';
+export {
+  FavoriteCurrencyWrapper,
+  ButtonBest,
+  NoFavoriteCurrency,
+  TitleCourseComponent,
+  TitleFavoriteCurrency,
+  ValidCourseContainer,
+  ListGroupContainer,
+  ListTableCurrency,
+} from './Course/courseStyled';
+export {
+  TitleConverterContainer,
+  InputGroupContainer,
+  TableCurrencyContainer,
+  SelectContainer,
+  InputContainer,
+  ErrorContainer,
+  ConverterContainer,
+  OptionContainer,
+} from './Converter/converterStyled';

@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
+import { Col } from 'react-bootstrap';
+import { navButtonSmallScreen } from '../media';
 
 export const NavButton = styled.button`
+  @media (max-width: 768px) {
+    ${navButtonSmallScreen}
+  }
   &:hover {
     opacity: 70%;
   }
@@ -21,4 +26,8 @@ export const NavButton = styled.button`
       color: #086d9f;
       background-color: white;
     `};
+`;
+
+export const NavigationComponent = styled(Col)`
+  padding: 50px 0 0 0;
 `;

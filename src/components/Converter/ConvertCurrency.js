@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import { getFilteredCurrency } from '../../ducks/selectors/filterCurrency';
+import { getFilteredCurrency } from '../../redux/ducks/selectors';
 import { TableCurrencyContainer } from '../../styled';
 
 const ConvertCurrency = ({ baseCurrency, convertedValue }) => {

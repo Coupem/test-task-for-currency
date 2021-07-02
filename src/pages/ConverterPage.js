@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { ConverterContainer, TitleConverterContainer } from '../styled';
 import { InputValuesGroup, ConvertCurrency } from '../components';
 import { defaultCurrency } from '../constants';
-import { getConvertToNational } from '../ducks/selectors/convertToNational';
+import { getConvertToNational } from '../redux/ducks/selectors';
 
 const ConverterPage = () => {
   const [inputValue, setInputValue] = useState('');

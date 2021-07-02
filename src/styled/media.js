@@ -4,7 +4,7 @@ export const buttonBestSmallScreen = `{font-size: 1px;
     width: 10px;
     }`;
 
-export const blockSmallScreen = `{ display: block;} `;
+export const blockSmallScreen = `{ display: block; padding: 0 20px;} `;
 
 export const listGroupSmallScreen = `{ font-size: 10px;
     display: block;
@@ -13,7 +13,7 @@ export const listGroupSmallScreen = `{ font-size: 10px;
     font-weight: 700;
      }`;
 
-export const fontSmallScreen = `{font-size: 15px;}`;
+export const fontSmallScreen = `{font-size: 12px;}`;
 
 export const footerSmallScreen = `{
     font-size: 25px;
@@ -23,3 +23,12 @@ export const footerSmallScreen = `{
 export const headerSmallScreen = `{
     font-size: 25px;
   }`;
+
+export const navButtonSmallScreen = `{
+    border: 2px solid white;
+    border-radius: 15px;
+}`;
+
+export const paddingSmallScreen = `{
+    padding: 0 10px;
+}`;
