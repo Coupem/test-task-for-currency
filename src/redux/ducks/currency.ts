@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { getCurrencyRequest } from '../../api';
 import { UKRAINIAN_CURRENCY } from '../../constants';
+import { StateTypes } from './currencyTypes';
 
 export const LOAD_CURRENCY_SUCCESS =
   'task-currency/currency/LOAD_CURRENCY_SUCCESS';
@@ -9,13 +10,13 @@ export const LOAD_CURRENCY = 'task-currency/currency/LOAD_CURRENCY';
 export const LOAD_CURRENCY_FAILED =
   'task-currency/currency/LOAD_CURRENCY_FAILED';
 
-const initialState = {
+const initialState: StateTypes = {
   currency: [],
   isLoadingCurrency: false,
   error: null,
 };
 
-export default (state = initialState, action) => {
+export default (state: StateTypes = initialState, action) => {
   switch (action.type) {
     case LOAD_CURRENCY:
       return {
