@@ -1,52 +1,98 @@
 module.exports = {
-    env: {
-        browser: true,
-        es6: true,
+
+  env: {
+    browser: true,
+    es6: true,
+  },
+  settings: { "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "webpack": {}
     },
-    extends: [
-        'airbnb',
-        'plugin:prettier/recommended',
-        'plugin:react/recommended',
-        'plugin:react-hooks/recommended',
+    "import/extensions": [
+      ".js",
+      ".mjs",
+      ".jsx",
+      ".ts",
+      ".tsx"
     ],
-    globals: {
-        Atomics: 'readonly',
-        SharedArrayBuffer: 'readonly',
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
     },
-    parser: 'babel-eslint',
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
-        },
-        ecmaVersion: 2018,
-        sourceType: 'module',
+    "import/core-modules": [],
+    "import/ignore": [
+      "node_modules",
+      "\\.(coffee|scss|css|less|hbs|svg|json)$"
+    ]
+  },
+  extends: [
+    'airbnb',
+    'plugin:prettier/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    plugins: ['react', 'prettier'],
-    rules: {
-        'no-console': [1, { allow: ['warn', 'error'] }],
-        'import/no-unresolved': 'off',
-        'react/jsx-filename-extension': [
-            1,
-            {
-                extensions: ['.js', '.jsx'],
-            },
-        ],
-        'react/jsx-props-no-spreading': 'off',
-        'react/display-name': 'off',
-        'prettier/prettier': ['error', { singleQuote: true }],
-        'react/jsx-fragments': 'off',
-        'react/prop-types': 'warn',
-        'consistent-return': 'warn',
-        'import/prefer-default-export': 'off',
-        'react/require-default-props': 'off',
-        'react/jsx-curly-newline': 'off',
-        'react/jsx-wrap-multilines': [
-            'error',
-            {
-                prop: 'ignore',
-            },
-        ],
-        'react/jsx-one-expression-per-line': 'off',
-        'jsx-a11y/label-has-associated-control': 'off',
-    },
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
+  // plugins: ['react', 'prettier'],
+  plugins: ["import"],
+  rules: {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-use-before-define": "off",
+    // "@typescript-eslint/no-use-before-define": ["error"],
+    'no-console': [1, { allow: ['warn', 'error'] }],
+    'import/no-unresolved': 'off',
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: ['.js', '.jsx'],
+      },
+    ],
+    'react/jsx-props-no-spreading': 'off',
+    'react/display-name': 'off',
+    'prettier/prettier': ['error', { singleQuote: true }],
+    'react/jsx-fragments': 'off',
+    'react/prop-types': 'warn',
+    'consistent-return': 'warn',
+    'import/prefer-default-export': 'off',
+    'react/require-default-props': 'off',
+    'react/jsx-curly-newline': 'off',
+    'react/jsx-wrap-multilines': [
+      'error',
+      {
+        prop: 'ignore',
+      },
+    ],
+    'react/jsx-one-expression-per-line': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+  },
 };
