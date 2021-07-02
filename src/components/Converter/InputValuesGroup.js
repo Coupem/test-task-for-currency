@@ -46,7 +46,7 @@ const InputValuesGroup = ({
         }}
         onSubmit={(values) => values}
       >
-        {({ values, errors, handleChange, maxLength }) => (
+        {({ values, errors, handleChange }) => (
           <form>
             <InputContainer
               placeholder="input value"
@@ -56,9 +56,7 @@ const InputValuesGroup = ({
               value={values.amount}
             />
 
-            {errors.amount ? (
-              <ErrorContainer>{errors.amount}</ErrorContainer>
-            ) : null}
+            {errors.amount && <ErrorContainer>{errors.amount}</ErrorContainer>}
             <SelectContainer
               onChange={handleChangeCurrency}
               defaultValue={values.currency}

@@ -11,7 +11,7 @@ import {
 import { Footer, Header, Navigation } from './components';
 import ConverterPage from './pages/ConverterPage';
 import CoursePage from './pages/CoursePage';
-import { getCurrency } from './ducks/reducers/currency';
+import { getCurrency } from './redux/ducks/currency';
 
 const App = () => {
   const dispatch = useDispatch();

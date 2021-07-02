@@ -1,5 +1,21 @@
 import styled from 'styled-components';
-import { Container } from 'react-bootstrap';
+import { Col, Container } from 'react-bootstrap';
+import { blockSmallScreen } from '../media';
+
+export const InteractionContainerWrapper = styled(Col)`
+  border-radius: 25px;
+  height: 1000px;
+  background-color: white;
+  padding-top: 100px;
+`;
+
+export const MainContentWrapper = styled(Col)`
+  display: flex;
+  height: 1000px;
+  padding: 0;
+  @media (max-width: 768px) {
+     ${blockSmallScreen}
+`;
 
 export const MainLayoutContainer = styled(Container)`
   height: 1200px;
