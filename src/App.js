@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { COURSE_PAGE, DEFAULT_URL, UKRAINIAN_CURRENCY } from './constants';
 import {
   InteractionContainerWrapper,
   MainContentWrapper,
@@ -11,45 +11,28 @@ import {
 import { Footer, Header, Navigation } from './components';
 import ConverterPage from './pages/ConverterPage';
 import CoursePage from './pages/CoursePage';
-import { getCurrencyRequest } from './api';
+import { getCurrency } from './redux/ducks/currency';
 
 const App = () => {
-  const { pathname } = useLocation();
-
-  const [loadedCurrency, setLoadedCurrency] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [showConverter, setShowConverter] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getCurrencyRequest.then((res) => {
-      setLoadedCurrency([...res, { ...UKRAINIAN_CURRENCY }]);
-      setIsLoading(false);
-    });
-  }, []);
-
-  useEffect(() => {
-    if (pathname === DEFAULT_URL) {
-      setShowConverter(true);
-    }
-
-    if (pathname === COURSE_PAGE) {
-      setShowConverter(false);
-    }
-  }, [pathname]);
+    dispatch(getCurrency());
+  }, [dispatch]);
 
   return (
     <MainLayoutContainer fluid>
       <Header />
       <MainContentWrapper>
-        <Navigation sm={2} showConverter={showConverter} />
-        <InteractionContainerWrapper sm={10}>
-          {!isLoading && showConverter && (
-            <ConverterPage loadedCurrency={loadedCurrency} />
-          )}
-          {!isLoading && !showConverter && (
-            <CoursePage loadedCurrency={loadedCurrency} />
-          )}
-        </InteractionContainerWrapper>
+        <Router>
+          <Navigation sm={2} />
+          <InteractionContainerWrapper sm={10}>
+            <Switch>
+              <Route path="/" exact render={() => <ConverterPage />} />
+              <Route exact path="/course" render={() => <CoursePage />} />
+            </Switch>
+          </InteractionContainerWrapper>
+        </Router>
       </MainContentWrapper>
       <Footer />
     </MainLayoutContainer>

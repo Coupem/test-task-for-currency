@@ -1,11 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
+import { CONVERTER_URL, COURSE_URL } from '../constants';
 import { NavButton, NavigationComponent } from '../styled';
 
-const Navigation = ({ showConverter }) => {
+const Navigation = () => {
   const history = useHistory();
+  const { pathname } = useLocation();
 
   const onClickButtonConverter = () => {
     history.push('/');
@@ -17,18 +18,22 @@ const Navigation = ({ showConverter }) => {
 
   return (
     <NavigationComponent>
-      <NavButton primary={showConverter} onClick={onClickButtonConverter}>
+      <NavButton
+        primary={pathname === CONVERTER_URL}
+        onClick={onClickButtonConverter}
+      >
         Converter
       </NavButton>
-      <NavButton primary={!showConverter} onClick={onClickButtonCourse}>
+      <NavButton
+        primary={pathname === COURSE_URL}
+        onClick={onClickButtonCourse}
+      >
         Course
       </NavButton>
     </NavigationComponent>
   );
 };
 
-Navigation.propTypes = {
-  showConverter: PropTypes.bool,
-};
+Navigation.propTypes = {};
 
 export default Navigation;
