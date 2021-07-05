@@ -2,7 +2,15 @@ import styled, { css } from 'styled-components';
 import { Col } from 'react-bootstrap';
 import { navButtonSmallScreen } from '../media';
 
-export const NavButton = styled.button`
+interface Primary {
+  readonly primary: boolean;
+}
+
+interface Foo {
+  readonly sm: number;
+}
+
+export const NavButton = styled.button<Primary>`
   @media (max-width: 768px) {
     ${navButtonSmallScreen}
   }
@@ -28,6 +36,6 @@ export const NavButton = styled.button`
     `};
 `;
 
-export const NavigationComponent = styled(Col)`
+export const NavigationComponent = styled(Col)<Foo>`
   padding: 50px 0 0 0;
 `;

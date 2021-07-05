@@ -13,14 +13,21 @@ import {
   ListTableCurrency,
 } from '../styled';
 import { FavoriteCurrency } from '../components';
+import { CurrencyState } from '../redux/ducks/types';
 
-const CoursePage = () => {
+interface ClickToFavorite {
+  ccy: string;
+  buy: string;
+  sale: string;
+}
+
+const CoursePage = (): JSX.Element => {
   const [favoriteCurrencies, setFavoriteCurrencies] = useState({});
 
   const { isLoadingCurrency: isLoading, currency: loadedCurrency } =
-    useSelector(({ responseData }) => responseData);
+    useSelector((currency: CurrencyState) => currency);
 
-  const handleClickSave = ({ ccy, buy, sale }) => {
+  const handleClickSave = ({ ccy, buy, sale }: ClickToFavorite) => {
     if (favoriteCurrencies[ccy]) {
       return;
     }
@@ -43,7 +50,7 @@ const CoursePage = () => {
   }, []);
 
   if (isLoading) {
-    return null;
+    return null as any;
   }
 
   return (

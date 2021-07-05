@@ -67,14 +67,15 @@ module.exports = {
         "tsx": "never"
       }
     ],
-    // "no-use-before-define": "off",
+
+    "no-use-before-define": "off",
     // "@typescript-eslint/no-use-before-define": ["error"],
     'no-console': [1, { allow: ['warn', 'error'] }],
     'import/no-unresolved': 'off',
     'react/jsx-filename-extension': [
       1,
       {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.ts', '.tsx'],
       },
     ],
     'react/jsx-props-no-spreading': 'off',

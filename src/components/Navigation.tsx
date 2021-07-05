@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { CONVERTER_URL, COURSE_URL } from '../constants';
 import { NavButton, NavigationComponent } from '../styled';
 
-const Navigation = () => {
+const Navigation = (): JSX.Element => {
   const history = useHistory();
   const { pathname } = useLocation();
 

@@ -10,14 +10,21 @@ import {
   ErrorContainer,
   OptionContainer,
 } from '../../styled';
+import { CurrencyState } from '../../redux/ducks/types';
+
+interface PropsInput {
+  baseCurrency: string;
+  handleChangeCurrency: void;
+  handleChangeInput: void;
+}
 
 const InputValuesGroup = ({
   baseCurrency,
   handleChangeCurrency,
   handleChangeInput,
-}) => {
+}: PropsInput): JSX.Element => {
   const { currency: loadedCurrency } = useSelector(
-    ({ responseData }) => responseData
+    (currency: CurrencyState) => currency
   );
 
   const handleInputValue = (formikHandleChange) => (event) => {

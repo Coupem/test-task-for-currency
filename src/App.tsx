@@ -13,7 +13,7 @@ import ConverterPage from './pages/ConverterPage';
 import CoursePage from './pages/CoursePage';
 import { getCurrency } from './redux/ducks/currency';
 
-const App = () => {
+const App = (): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {

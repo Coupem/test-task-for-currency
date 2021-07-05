@@ -1,6 +1,6 @@
 export const UKRAINIAN_CURRENCY = {
   ccy: 'UAH',
-  base_ccy: 'UAH',
+  baseCcy: 'UAH',
   buy: '1',
   sale: '1',
 };

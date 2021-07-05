@@ -1,22 +1,31 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery, ForkEffect } from 'redux-saga/effects';
 import { getCurrencyRequest } from '../../api';
 import { UKRAINIAN_CURRENCY } from '../../constants';
-import { StateTypes } from './currencyTypes';
+import {
+  CurrencyState,
+  CurrencyActions,
+  FetchCurrencyRequest,
+  FetchCurrencySuccess,
+  FetchCurrencyFailedPayload,
+  FetchCurrencyFailed,
+  Currency,
+} from './types';
+import {
+  LOAD_CURRENCY,
+  LOAD_CURRENCY_FAILED,
+  LOAD_CURRENCY_SUCCESS,
+} from './actionTypes';
 
-export const LOAD_CURRENCY_SUCCESS =
-  'task-currency/currency/LOAD_CURRENCY_SUCCESS';
-export const LOAD_CURRENCY = 'task-currency/currency/LOAD_CURRENCY';
-
-export const LOAD_CURRENCY_FAILED =
-  'task-currency/currency/LOAD_CURRENCY_FAILED';
-
-const initialState: StateTypes = {
+const initialState: CurrencyState = {
   currency: [],
   isLoadingCurrency: false,
-  error: null,
+  error: '',
 };
 
-export default (state: StateTypes = initialState, action) => {
+export default (
+  state: CurrencyState = initialState,
+  action: CurrencyActions
+): CurrencyState => {
   switch (action.type) {
     case LOAD_CURRENCY:
       return {
@@ -33,35 +42,45 @@ export default (state: StateTypes = initialState, action) => {
       return {
         ...state,
         isLoadingCurrency: false,
-        error: action.payload,
+        error: action.payload.error,
       };
     default:
       return state;
   }
 };
 
-export const getCurrency = () => ({ type: LOAD_CURRENCY });
+export const getCurrency = (): FetchCurrencyRequest => ({
+  type: LOAD_CURRENCY,
+});
 
-export const getCurrencySuccess = (payload) => ({
+export const getCurrencySuccess = (
+  payload: Currency[]
+): FetchCurrencySuccess => ({
   type: LOAD_CURRENCY_SUCCESS,
   payload,
 });
 
-export const getCurrencyError = (payload) => ({
+export const getCurrencyError = (
+  payload: FetchCurrencyFailedPayload
+): FetchCurrencyFailed => ({
   type: LOAD_CURRENCY_FAILED,
   payload,
 });
 
 function* fetchCurrency() {
   try {
-    const responseData = yield call(getCurrencyRequest);
+    const responseData: Currency[] = yield call(getCurrencyRequest);
     const currencyList = [...responseData, { ...UKRAINIAN_CURRENCY }];
     yield put(getCurrencySuccess(currencyList));
   } catch (e) {
-    yield put(getCurrencyError(e));
+    yield put(
+      getCurrencyError({
+        error: e.message,
+      })
+    );
   }
 }
 
-export function* getRequestDataCurrency() {
+export function* getRequestDataCurrency(): Generator<ForkEffect<never>> {
   yield takeEvery(LOAD_CURRENCY, fetchCurrency);
 }

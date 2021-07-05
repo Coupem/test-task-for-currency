@@ -4,9 +4,18 @@ import { useSelector } from 'react-redux';
 
 import { getFilteredCurrency } from '../../redux/ducks/selectors';
 import { TableCurrencyContainer } from '../../styled';
+import { CurrencyState } from '../../redux/ducks/types';
 
-const ConvertCurrency = ({ baseCurrency, convertedValue }) => {
-  const filteredCurrency = useSelector(({ responseData: { currency } }) =>
+interface PropConverter {
+  baseCurrency: string;
+  convertedValue: number;
+}
+
+const ConvertCurrency = ({
+  baseCurrency,
+  convertedValue,
+}: PropConverter): JSX.Element => {
+  const filteredCurrency = useSelector(({ currency }: CurrencyState) =>
     getFilteredCurrency(currency, baseCurrency)
   );
 
@@ -22,7 +31,7 @@ const ConvertCurrency = ({ baseCurrency, convertedValue }) => {
         {filteredCurrency.map((itemCurrency) => (
           <tr key={itemCurrency.ccy}>
             <td className="p-lg-3">
-              {(convertedValue / itemCurrency.sale).toFixed(3)}
+              {(convertedValue / parseInt(itemCurrency.sale, 10)).toFixed(3)}
             </td>
             <td className="w-25 p-lg-2">{itemCurrency.ccy}</td>
           </tr>
