@@ -1,7 +1,7 @@
 import { CurrencyStorage } from '../types';
 
 export const getLocalStorageItem = (key: string): string => {
-  const localeStorageData = localStorage.getitem(key);
+  const localeStorageData = localStorage.getItem(key);
 
   return localeStorageData ? JSON.parse(localeStorageData) : {};
 };
