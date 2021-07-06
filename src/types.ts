@@ -62,18 +62,18 @@ export interface FavoriteState {
   sale: string;
 }
 
-interface IsFavoriteState {
+interface FavoriteStateForProp {
   ccy?: string;
   buy?: string;
   sale?: string;
 }
 
-export interface LocaleStoreState {
+export interface CurrencyStorage {
   [key: string]: FavoriteState;
 }
 
-export interface IsFavoriteCurrency {
-  [key: string]: IsFavoriteState;
+export interface FavoriteCurrencyProp {
+  [key: string]: FavoriteStateForProp;
 }
 
 export interface PropConverter {
@@ -88,5 +88,5 @@ export interface PropsInput {
 }
 
 export type ErrorsHandler = {
-  amount: string;
+  amount?: string;
 };

@@ -1,11 +1,13 @@
-import { LocaleStoreState } from '../types';
+import { CurrencyStorage } from '../types';
 
-export const getLocalStorageItem = (key: string): string =>
-  JSON.parse(<string>localStorage.getItem(key));
+export const getLocalStorageItem = (key: string): string => {
+  const localeStorageData = localStorage.getitem(key);
 
+  return localeStorageData ? JSON.parse(localeStorageData) : {};
+};
 export const setLocalStorageItem = (
   key: string,
-  value: LocaleStoreState
+  value: CurrencyStorage
 ): void => {
   localStorage.setItem(key, JSON.stringify(value));
 };

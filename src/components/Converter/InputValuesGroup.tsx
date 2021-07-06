@@ -38,7 +38,7 @@ const InputValuesGroup = ({
       <Formik
         initialValues={{ amount: '', currency: baseCurrency }}
         validate={(values) => {
-          const errors: ErrorsHandler = { amount: '' };
+          const errors: ErrorsHandler = {};
 
           if (!values.amount) {
             errors.amount = 'Please input number value';
