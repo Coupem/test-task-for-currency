@@ -1,6 +1,12 @@
 import { call, put, takeEvery, ForkEffect } from 'redux-saga/effects';
+
 import { getCurrencyRequest } from '../../api';
 import { UKRAINIAN_CURRENCY } from '../../constants';
+import {
+  LOAD_CURRENCY,
+  LOAD_CURRENCY_FAILED,
+  LOAD_CURRENCY_SUCCESS,
+} from './actionTypes';
 import {
   CurrencyState,
   CurrencyActions,
@@ -9,16 +15,11 @@ import {
   FetchCurrencyFailedPayload,
   FetchCurrencyFailed,
   Currency,
-} from './types';
-import {
-  LOAD_CURRENCY,
-  LOAD_CURRENCY_FAILED,
-  LOAD_CURRENCY_SUCCESS,
-} from './actionTypes';
+} from '../../types';
 
 const initialState: CurrencyState = {
   currency: [],
-  isLoadingCurrency: false,
+  isLoadingCurrency: true,
   error: '',
 };
 
@@ -44,6 +45,7 @@ export default (
         isLoadingCurrency: false,
         error: action.payload.error,
       };
+
     default:
       return state;
   }

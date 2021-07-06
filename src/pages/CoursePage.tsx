@@ -1,36 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import { FavoriteCurrency } from '../components';
 import {
   getLocalStorageItem,
   setLocalStorageItem,
 } from '../utils/loacalStorage';
-import { favoriteCurrenciesKey } from '../constants';
+import { favoriteCurrenciesKey, defaultCurrency } from '../constants';
 import {
   ValidCourseContainer,
   TitleCourseComponent,
   ButtonBest,
   ListTableCurrency,
 } from '../styled';
-import { FavoriteCurrency } from '../components';
-import { CurrencyState } from '../redux/ducks/types';
+import { Currency, RootState, FavoriteState } from '../types';
 
-interface ClickToFavorite {
-  ccy: string;
-  buy: string;
-  sale: string;
-}
-
-const CoursePage = (): JSX.Element => {
+const CoursePage = (): JSX.Element | null => {
   const [favoriteCurrencies, setFavoriteCurrencies] = useState({});
 
   const { isLoadingCurrency: isLoading, currency: loadedCurrency } =
-    useSelector((currency: CurrencyState) => currency);
+    useSelector((state: RootState) => state.currency);
 
-  const handleClickSave = ({ ccy, buy, sale }: ClickToFavorite) => {
-    if (favoriteCurrencies[ccy]) {
+  const handleClickSave = ({ ccy, buy, sale }: FavoriteState) => {
+    if (Object.prototype.hasOwnProperty.call(favoriteCurrencies, ccy)) {
       return;
     }
+
     const updatedCurrencies = {
       ...favoriteCurrencies,
       [ccy]: { ccy, buy, sale },
@@ -41,7 +36,9 @@ const CoursePage = (): JSX.Element => {
     setLocalStorageItem(favoriteCurrenciesKey, updatedCurrencies);
   };
 
-  const filteredCurrency = loadedCurrency.filter((item) => item.ccy !== 'UAH');
+  const filteredCurrency = loadedCurrency.filter(
+    (item: Currency) => item.ccy !== defaultCurrency
+  );
 
   useEffect(() => {
     const currencies = getLocalStorageItem(favoriteCurrenciesKey);
@@ -50,7 +47,7 @@ const CoursePage = (): JSX.Element => {
   }, []);
 
   if (isLoading) {
-    return null as any;
+    return null;
   }
 
   return (
@@ -72,10 +69,7 @@ const CoursePage = (): JSX.Element => {
               <td>{itemCurrency.buy}</td>
               <td>
                 {itemCurrency.sale}
-                <ButtonBest
-                  onClick={() => handleClickSave(itemCurrency)}
-                  variant="dark"
-                >
+                <ButtonBest onClick={() => handleClickSave(itemCurrency)}>
                   best
                 </ButtonBest>
               </td>

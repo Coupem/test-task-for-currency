@@ -1,27 +1,31 @@
-import { Currency } from './types';
+import { Currency } from '../../types';
 
 export const getConvertToNational = (
   listCurrency: Currency[],
   baseCurrency: string,
-  inputValue: string
+  inputValue: number
 ): number => {
   let convertedValue = 1;
+  let enteredNumber = inputValue;
 
+  if (!enteredNumber) {
+    enteredNumber = 0;
+  }
   if (baseCurrency === 'BTC') {
     // converted to USD
-    const obj = listCurrency.find((itemCurrency) => itemCurrency.ccy === 'USD');
+    const currencyBTC = listCurrency.find(
+      (itemCurrency) => itemCurrency.ccy === 'USD'
+    );
 
-    if (obj) {
-      convertedValue = parseInt(inputValue, 10) * parseInt(obj.buy, 10);
+    if (currencyBTC) {
+      convertedValue = enteredNumber * parseFloat(currencyBTC.buy);
     }
   }
 
   listCurrency.forEach((itemCurrency) => {
     if (baseCurrency === itemCurrency.ccy) {
       convertedValue =
-        convertedValue *
-        parseInt(inputValue, 10) *
-        parseInt(itemCurrency.buy, 10);
+        convertedValue * enteredNumber * parseFloat(itemCurrency.buy);
     }
   });
 

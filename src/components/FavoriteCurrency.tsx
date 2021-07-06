@@ -8,8 +8,11 @@ import {
   TitleFavoriteCurrency,
   ListGroupContainer,
 } from '../styled';
+import { IsFavoriteCurrency } from '../types';
 
-const FavoriteCurrency = ({ favoriteCurrencies }) => (
+const FavoriteCurrency = ({
+  favoriteCurrencies,
+}: IsFavoriteCurrency): JSX.Element => (
   <FavoriteCurrencyWrapper>
     <TitleFavoriteCurrency>Favorite Currency:</TitleFavoriteCurrency>
 

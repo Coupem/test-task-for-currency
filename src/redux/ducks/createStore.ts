@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import rootSaga from './sagas';
 import rootReducer from './reducer';
-import { StoreState } from './types';
+import { StoreState } from '../../types';
 
 declare global {
   interface Window {

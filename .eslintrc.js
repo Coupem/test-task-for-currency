@@ -69,7 +69,7 @@ module.exports = {
     ],
 
     "no-use-before-define": "off",
-    // "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-use-before-define": ["error"],
     'no-console': [1, { allow: ['warn', 'error'] }],
     'import/no-unresolved': 'off',
     'react/jsx-filename-extension': [

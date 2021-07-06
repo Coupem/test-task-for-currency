@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ChangeEventHandler, ChangeEvent } from 'react';
 import PropTypes from 'prop-types';
+import { Formik } from 'formik';
 import { useSelector } from 'react-redux';
 
-import { Formik } from 'formik';
 import {
   InputGroupContainer,
   InputContainer,
@@ -10,13 +10,7 @@ import {
   ErrorContainer,
   OptionContainer,
 } from '../../styled';
-import { CurrencyState } from '../../redux/ducks/types';
-
-interface PropsInput {
-  baseCurrency: string;
-  handleChangeCurrency: void;
-  handleChangeInput: void;
-}
+import { RootState, PropsInput, ErrorsHandler } from '../../types';
 
 const InputValuesGroup = ({
   baseCurrency,
@@ -24,25 +18,27 @@ const InputValuesGroup = ({
   handleChangeInput,
 }: PropsInput): JSX.Element => {
   const { currency: loadedCurrency } = useSelector(
-    (currency: CurrencyState) => currency
+    (state: RootState) => state.currency
   );
 
-  const handleInputValue = (formikHandleChange) => (event) => {
-    handleChangeInput(event.target.value);
+  const handleInputValue =
+    (formikHandleChange: ChangeEventHandler<HTMLInputElement>) =>
+    (event: ChangeEvent<HTMLInputElement>) => {
+      handleChangeInput(event.target.value);
 
-    const inputValidation = event;
-    if (inputValidation.target.value.length > 10) {
-      return;
-    }
-    formikHandleChange(inputValidation);
-  };
+      const inputValidation = event;
+      if (inputValidation.target.value.length > 10) {
+        return;
+      }
+      formikHandleChange(inputValidation);
+    };
 
   return (
     <InputGroupContainer className="m-auto">
       <Formik
         initialValues={{ amount: '', currency: baseCurrency }}
         validate={(values) => {
-          const errors = {};
+          const errors: ErrorsHandler = { amount: '' };
 
           if (!values.amount) {
             errors.amount = 'Please input number value';
@@ -51,7 +47,9 @@ const InputValuesGroup = ({
           }
           return errors;
         }}
-        onSubmit={(values) => values}
+        onSubmit={() => {
+          return undefined;
+        }}
       >
         {({ values, errors, handleChange }) => (
           <form>

@@ -6,10 +6,6 @@ interface Primary {
   readonly primary: boolean;
 }
 
-interface Foo {
-  readonly sm: number;
-}
-
 export const NavButton = styled.button<Primary>`
   @media (max-width: 768px) {
     ${navButtonSmallScreen}
@@ -36,6 +32,6 @@ export const NavButton = styled.button<Primary>`
     `};
 `;
 
-export const NavigationComponent = styled(Col)<Foo>`
+export const NavigationComponent = styled(Col)`
   padding: 50px 0 0 0;
 `;

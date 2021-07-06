@@ -1,8 +1,9 @@
+import { ChangeEventHandler } from 'react';
 import {
-  LOAD_CURRENCY,
-  LOAD_CURRENCY_FAILED,
   LOAD_CURRENCY_SUCCESS,
-} from './actionTypes';
+  LOAD_CURRENCY_FAILED,
+  LOAD_CURRENCY,
+} from './redux/ducks/actionTypes';
 
 export interface ResponseCurrency {
   ccy: string;
@@ -22,6 +23,10 @@ export interface CurrencyState {
   currency: Currency[];
   isLoadingCurrency: boolean;
   error: string | null;
+}
+
+export interface RootState {
+  currency: CurrencyState;
 }
 
 export interface FetchCurrencyFailedPayload {
@@ -51,8 +56,37 @@ export interface StoreState {
   currency: CurrencyState;
 }
 
-// export interface PropSelector {
-//   listCurrency: Currency[];
-//   baseCurrency: string;
-//   inputValue: string;
-// }
+export interface FavoriteState {
+  ccy: string;
+  buy: string;
+  sale: string;
+}
+
+interface IsFavoriteState {
+  ccy?: string;
+  buy?: string;
+  sale?: string;
+}
+
+export interface LocaleStoreState {
+  [key: string]: FavoriteState;
+}
+
+export interface IsFavoriteCurrency {
+  [key: string]: IsFavoriteState;
+}
+
+export interface PropConverter {
+  baseCurrency: string;
+  convertedValue: number;
+}
+
+export interface PropsInput {
+  baseCurrency: string;
+  handleChangeCurrency: ChangeEventHandler<HTMLSelectElement>;
+  handleChangeInput: (value: string) => void;
+}
+
+export type ErrorsHandler = {
+  amount: string;
+};

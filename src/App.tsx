@@ -25,7 +25,7 @@ const App = (): JSX.Element => {
       <Header />
       <MainContentWrapper>
         <Router>
-          <Navigation sm={2} />
+          <Navigation />
           <InteractionContainerWrapper sm={10}>
             <Switch>
               <Route path="/" exact render={() => <ConverterPage />} />

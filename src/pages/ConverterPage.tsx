@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
+import React, { ChangeEventHandler, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { string } from 'prop-types';
-import { ConverterContainer, TitleConverterContainer } from '../styled';
 import { InputValuesGroup, ConvertCurrency } from '../components';
+import { RootState } from '../types';
 import { defaultCurrency } from '../constants';
+import { ConverterContainer, TitleConverterContainer } from '../styled';
 import { getConvertToNational } from '../redux/ducks/selectors';
-import { Currency, CurrencyState } from '../redux/ducks/types';
 
-const ConverterPage = (): JSX.Element => {
-  const [inputValue, setInputValue] = useState('');
+const ConverterPage = (): JSX.Element | null => {
+  const [inputValue, setInputValue] = useState(0);
   const [baseCurrency, setBaseCurrency] = useState(defaultCurrency);
 
   const { isLoadingCurrency: isLoading } = useSelector(
-    (currency: CurrencyState) => currency
-  );
-  const convertedValueToNational = useSelector(({ currency }: CurrencyState) =>
-    getConvertToNational(currency, baseCurrency, inputValue)
+    (state: RootState) => state.currency
   );
 
-  const handleChangeBaseCurrency = (
-    currency: React.ChangeEvent<HTMLSelectElement>
+  const convertedValueToNational = useSelector((state: RootState) =>
+    getConvertToNational(state.currency.currency, baseCurrency, inputValue)
+  );
+
+  const handleChangeBaseCurrency: ChangeEventHandler<HTMLSelectElement> = (
+    event
   ) => {
-    setBaseCurrency(currency.target.value);
+    setBaseCurrency(event.target.value);
   };
 
   const handleInputValue = (value: string) => {
-    setInputValue(value);
+    setInputValue(parseInt(value, 10));
   };
 
   if (isLoading) {
-    return null as any;
+    return null;
   }
 
   return (
@@ -40,7 +40,6 @@ const ConverterPage = (): JSX.Element => {
         baseCurrency={baseCurrency}
         handleChangeCurrency={handleChangeBaseCurrency}
         handleChangeInput={handleInputValue}
-        inputValue={inputValue}
       />
       <ConvertCurrency
         baseCurrency={baseCurrency}

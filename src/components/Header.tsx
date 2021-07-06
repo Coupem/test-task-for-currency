@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeaderComponent } from '../styled';
 
-const Header = () => (
+const Header = (): JSX.Element => (
   <HeaderComponent>Best converter & valid currency course</HeaderComponent>
 );
 
