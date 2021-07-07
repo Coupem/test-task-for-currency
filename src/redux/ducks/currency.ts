@@ -2,12 +2,11 @@ import { call, put, takeEvery, ForkEffect } from 'redux-saga/effects';
 
 import { getCurrencyRequest } from '../../api';
 import { UKRAINIAN_CURRENCY } from '../../constants';
+
 import {
   LOAD_CURRENCY,
   LOAD_CURRENCY_FAILED,
   LOAD_CURRENCY_SUCCESS,
-} from './actionTypes';
-import {
   CurrencyState,
   CurrencyActions,
   FetchCurrencyRequest,

@@ -6,6 +6,7 @@ import {
   fontSmallScreen,
   listGroupSmallScreen,
 } from '../media';
+import { colorBlue } from '../colors';
 
 export const ButtonBest = styled.button`
   &:hover {
@@ -13,15 +14,13 @@ export const ButtonBest = styled.button`
   }
   max-width: 50px;
   border-radius: 8px;
-  color: #086d9f;
+  color: ${colorBlue};
   height: 24px;
   font-size: 15px;
   position: absolute;
   right: 15px;
-  border: 1px solid #086d9f;
-  @media (max-width: 768px) {
-    ${buttonBestSmallScreen}
-  }
+  border: 1px solid ${colorBlue};
+  ${buttonBestSmallScreen}
 `;
 
 export const FavoriteCurrencyWrapper = styled.div`
@@ -29,33 +28,27 @@ export const FavoriteCurrencyWrapper = styled.div`
   justify-content: space-around;
   max-width: 1000px;
   margin: auto;
-  border: 3px solid #086d9f;
+  border: 3px solid ${colorBlue};
   font-size: 20px;
   margin-top: 40px;
   border-radius: 5px;
-  @media (max-width: 768px) {
-    ${blockSmallScreen}
-  }
+  ${blockSmallScreen}
 `;
 
 export const ListGroupContainer = styled(ListGroup)`
   padding: 20px 0;
   font-weight: 500;
-  @media (max-width: 768px) {
-    ${listGroupSmallScreen}
-  }
+  ${listGroupSmallScreen}
 `;
 
 export const ListTableCurrency = styled(Table)`
   max-width: 800px;
   margin: 50px auto;
-  border: 3px solid #086d9f;
+  border: 3px solid ${colorBlue};
   font-size: 20px;
   box-shadow: 5px 9px 30px -6px;
   position: relative;
-  @media (max-width: 768px) {
-    ${fontSmallScreen}
-  }
+  ${fontSmallScreen}
 `;
 
 export const NoFavoriteCurrency = styled.div`
@@ -76,16 +69,15 @@ export const TitleFavoriteCurrency = styled.div`
   font-size: 25px;
   font-weight: 600;
   margin: auto 10px;
-  @media (max-width: 768px) {
-    ${fontSmallScreen};
-  }
+
+  ${fontSmallScreen};
 `;
 
 export const ValidCourseContainer = styled.div`
   max-width: 1500px;
   height: 800px;
   margin: auto;
-  border: 5px solid #086d9f;
+  border: 5px solid ${colorBlue};
   border-radius: 15px;
   box-shadow: 0 -3px 29px -4px;
   font-weight: 600;

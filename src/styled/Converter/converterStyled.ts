@@ -1,21 +1,20 @@
 import styled from 'styled-components';
 import { InputGroup, Table } from 'react-bootstrap';
 import { paddingSmallScreen } from '../media';
+import { colorBlue, colorRed } from '../colors';
 
 export const ConverterContainer = styled.div`
   max-width: 1500px;
   height: 800px;
   margin: auto;
-  border: 5px solid #086d9f;
+  border: 5px solid ${colorBlue};
   border-radius: 15px;
   box-shadow: 0 -3px 29px -4px;
-  @media (max-width: 768px) {
-    ${paddingSmallScreen}
-  }
+  ${paddingSmallScreen}
 `;
 
 export const ErrorContainer = styled.div`
-  color: #dd3646;
+  color: ${colorRed};
   position: absolute;
   left: 50px;
   font-size: 15px;
@@ -23,12 +22,12 @@ export const ErrorContainer = styled.div`
 
 export const InputContainer = styled.input`
   height: 30px;
-  border: 1px solid #086d9f;
+  border: 1px solid ${colorBlue};
   border-radius: 3px;
   font-weight: 500;
   position: relative;
   &:focus-visible {
-    border: 3px solid #086d9f;
+    border: 3px solid ${colorBlue};
     border-radius: 5px;
     outline: none;
   }
@@ -48,14 +47,14 @@ export const OptionContainer = styled.option`
 
 export const SelectContainer = styled.select`
   height: 30px;
-  background-color: #086d9f;
+  background-color: ${colorBlue};
   color: white;
-  border: 1px solid #086d9f;
+  border: 1px solid ${colorBlue};
   font-weight: 500;
   border-radius: 3px;
   line-height: 100px;
   &:focus-visible {
-    border: 3px solid #086d9f;
+    border: 3px solid ${colorBlue};
     border-radius: 5px;
     outline: none;
   }
@@ -64,7 +63,7 @@ export const SelectContainer = styled.select`
 export const TableCurrencyContainer = styled(Table)`
   max-width: 800px;
   margin: 50px auto;
-  border: 3px solid #086d9f;
+  border: 3px solid ${colorBlue};
   font-size: 20px;
   box-shadow: 5px 9px 30px -6px;
   font-weight: 500;

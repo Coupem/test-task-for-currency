@@ -1,15 +1,10 @@
 import styled, { css } from 'styled-components';
 import { Col } from 'react-bootstrap';
 import { navButtonSmallScreen } from '../media';
-
-interface Primary {
-  readonly primary: boolean;
-}
+import { Primary } from '../../types';
+import { colorBlue, colorWhite } from '../colors';
 
 export const NavButton = styled.button<Primary>`
-  @media (max-width: 768px) {
-    ${navButtonSmallScreen}
-  }
   &:hover {
     opacity: 70%;
   }
@@ -17,19 +12,20 @@ export const NavButton = styled.button<Primary>`
   height: 80px;
   margin: 10px 0;
   border-style: none;
-  color: white;
+  color: ${colorWhite};
   font-size: 20px;
   font-weight: 600;
   border-radius: 15px 5px 5px 15px;
-  border-top: 3px solid white;
-  border-bottom: 2px solid white;
-  background-color: ${(props) => (props.color ? props.color : '#086d9f')};
+  border-top: 3px solid ${colorWhite};
+  border-bottom: 2px solid ${colorWhite};
+  background-color: ${(props) => (props.color ? props.color : colorBlue)};
   ${(props) =>
     props.primary &&
     css`
-      color: #086d9f;
-      background-color: white;
+      color: ${colorBlue};
+      background-color: ${colorWhite};
     `};
+  ${navButtonSmallScreen}
 `;
 
 export const NavigationComponent = styled(Col)`

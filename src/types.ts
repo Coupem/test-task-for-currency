@@ -1,9 +1,12 @@
 import { ChangeEventHandler } from 'react';
-import {
-  LOAD_CURRENCY_SUCCESS,
-  LOAD_CURRENCY_FAILED,
-  LOAD_CURRENCY,
-} from './redux/ducks/actionTypes';
+
+export const LOAD_CURRENCY_SUCCESS =
+  'task-currency/currency/LOAD_CURRENCY_SUCCESS';
+
+export const LOAD_CURRENCY = 'task-currency/currency/LOAD_CURRENCY';
+
+export const LOAD_CURRENCY_FAILED =
+  'task-currency/currency/LOAD_CURRENCY_FAILED';
 
 export interface ResponseCurrency {
   ccy: string;
@@ -90,3 +93,7 @@ export interface PropsInput {
 export type ErrorsHandler = {
   amount?: string;
 };
+
+export interface Primary {
+  readonly primary: boolean;
+}
