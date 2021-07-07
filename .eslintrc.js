@@ -54,8 +54,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  // plugins: ['react', 'prettier'],
-  plugins: ["import"],
+  plugins: ['react', 'prettier'],
   rules: {
     "import/extensions": [
       "error",
@@ -68,8 +67,8 @@ module.exports = {
       }
     ],
 
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-use-before-define": [0],
+    "@ typescript-eslint / no-use-before-define": [1],
     'no-console': [1, { allow: ['warn', 'error'] }],
     'import/no-unresolved': 'off',
     'react/jsx-filename-extension': [

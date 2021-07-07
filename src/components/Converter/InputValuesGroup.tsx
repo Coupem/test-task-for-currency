@@ -42,7 +42,7 @@ const InputValuesGroup = ({
 
           if (!values.amount) {
             errors.amount = 'Please input number value';
-          } else if (!/\-?\d+(\.\d{0,})?/i.test(values.amount)) {
+          } else if (!/-?\d+(\.\d{0,})?/i.test(values.amount)) {
             errors.amount = 'Invalid value';
           }
           return errors;
