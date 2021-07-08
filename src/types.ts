@@ -10,6 +10,7 @@ export const LOAD_CURRENCY_FAILED =
 
 export interface ResponseCurrency {
   ccy: string;
+  // eslint-disable-next-line camelcase
   base_ccy: string;
   buy: string;
   sale: string;

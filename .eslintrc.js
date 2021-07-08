@@ -1,38 +1,14 @@
 module.exports = {
-
   env: {
     browser: true,
     es6: true,
   },
-  settings: { "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
-      "webpack": {}
     },
-    "import/extensions": [
-      ".js",
-      ".mjs",
-      ".jsx",
-      ".ts",
-      ".tsx"
-    ],
-    "import/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx"
-      ]
-    },
-    "import/core-modules": [],
-    "import/ignore": [
-      "node_modules",
-      "\\.(coffee|scss|css|less|hbs|svg|json)$"
-    ]
   },
   extends: [
     'airbnb',
@@ -46,7 +22,7 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -54,21 +30,29 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', '@typescript-eslint'],
+  overrides: [
+    {
+      files: ['*.tsx'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
   rules: {
-    "import/extensions": [
-      "error",
-      "ignorePackages",
+    // camelcase: 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
       {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
     ],
-
-    "no-use-before-define": [0],
-    "@ typescript-eslint / no-use-before-define": [1],
     'no-console': [1, { allow: ['warn', 'error'] }],
     'import/no-unresolved': 'off',
     'react/jsx-filename-extension': [
@@ -92,6 +76,7 @@ module.exports = {
         prop: 'ignore',
       },
     ],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'react/jsx-one-expression-per-line': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
   },

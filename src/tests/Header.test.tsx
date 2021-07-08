@@ -1,0 +1,13 @@
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import React from 'react';
+
+import { Footer } from '../components/index';
+
+describe('Footer', () => {
+  const wrapper = shallow(<Footer />);
+
+  it('should render correctly', () => {
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+});
