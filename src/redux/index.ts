@@ -27,7 +27,7 @@ declare global {
   }
 }
 
-export default function (): Store<StoreState> {
+export default (): Store<StoreState> => {
   const sagaMiddleware = createSagaMiddleware();
 
   const composeEnhancers =
@@ -39,4 +39,4 @@ export default function (): Store<StoreState> {
   sagaMiddleware.run(rootSagas);
 
   return store;
-}
+};

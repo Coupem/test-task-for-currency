@@ -1,6 +1,11 @@
 {
   "name": "task-converter",
   "version": "0.1.0",
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -64,6 +69,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-test-renderer": "^17.0.1",
+    "@types/redux-mock-store": "^1.0.3",
     "@types/styled-components": "^5.1.11",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",

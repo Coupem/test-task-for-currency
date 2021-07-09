@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer should render correctly 1`] = `
+exports[`Footer component should render correctly 1`] = `
 <Styled(Col)>
   © 2021 My. Built My Theme.
 </Styled(Col)>

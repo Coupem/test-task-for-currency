@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Converter page should render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ConvertCurrency
+    baseCurrency=""
+    convertedValue={0}
+  >
+    <Styled(Component)
+      bordered={true}
+      hover={true}
+      striped={true}
+    >
+      <ForwardRef
+        bordered={true}
+        className="sc-iemWCZ cunngp"
+        hover={true}
+        striped={true}
+      >
+        <table
+          className="sc-iemWCZ cunngp table table-striped table-bordered table-hover"
+        >
+          <thead>
+            <tr>
+              <th>
+                Converted Value
+              </th>
+              <th>
+                Currency
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="UAH"
+            >
+              <td
+                className="p-lg-3"
+              >
+                0.000
+              </td>
+              <td
+                className="w-25 p-lg-2"
+              >
+                UAH
+              </td>
+            </tr>
+            <tr
+              key="BTC"
+            >
+              <td
+                className="p-lg-3"
+              >
+                0.000
+              </td>
+              <td
+                className="w-25 p-lg-2"
+              >
+                BTC
+              </td>
+            </tr>
+            <tr
+              key="USD"
+            >
+              <td
+                className="p-lg-3"
+              >
+                0.000
+              </td>
+              <td
+                className="w-25 p-lg-2"
+              >
+                USD
+              </td>
+            </tr>
+            <tr
+              key="RUR"
+            >
+              <td
+                className="p-lg-3"
+              >
+                0.000
+              </td>
+              <td
+                className="w-25 p-lg-2"
+              >
+                RUR
+              </td>
+            </tr>
+            <tr
+              key="EUR"
+            >
+              <td
+                className="p-lg-3"
+              >
+                0.000
+              </td>
+              <td
+                className="w-25 p-lg-2"
+              >
+                EUR
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ForwardRef>
+    </Styled(Component)>
+  </ConvertCurrency>
+</Provider>
+`;

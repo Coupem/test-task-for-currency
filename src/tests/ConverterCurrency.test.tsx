@@ -1,12 +1,10 @@
-import { CommonWrapper, shallow, mount } from 'enzyme';
+import { CommonWrapper, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
 import { Provider } from 'react-redux';
-import ConverterPage from '../pages/ConverterPage';
-
-import { initialState } from '../redux/ducks/currency';
+import { ConvertCurrency } from '../components/index';
 
 describe('Converter page', () => {
   const mockStore = configureStore();
@@ -30,7 +28,7 @@ describe('Converter page', () => {
     };
     wrapper = mount(
       <Provider store={mockStore(state)}>
-        <ConverterPage />
+        <ConvertCurrency convertedValue={0} baseCurrency="" />
       </Provider>
     );
   });

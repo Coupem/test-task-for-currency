@@ -4,7 +4,7 @@ import React from 'react';
 
 import { Footer } from '../components/index';
 
-describe('Footer', () => {
+describe('Footer component', () => {
   const wrapper = shallow(<Footer />);
 
   it('should render correctly', () => {

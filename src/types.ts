@@ -96,5 +96,5 @@ export type ErrorsHandler = {
 };
 
 export interface Primary {
-  readonly primary: boolean;
+  primary?: boolean;
 }

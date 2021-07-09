@@ -16,7 +16,7 @@ import {
   Currency,
 } from '../../types';
 
-const initialState: CurrencyState = {
+export const initialState: CurrencyState = {
   currency: [],
   isLoadingCurrency: true,
   error: '',

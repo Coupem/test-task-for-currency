@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';

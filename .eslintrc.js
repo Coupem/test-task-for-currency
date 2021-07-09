@@ -40,9 +40,6 @@ module.exports = {
     },
   ],
   rules: {
-    // camelcase: 'off',
-    'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',

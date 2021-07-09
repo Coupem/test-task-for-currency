@@ -1,35 +1,237 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Converter page should render correctly 1`] = `
-<ContextProvider
-  value={
+<Provider
+  store={
     Object {
-      "store": Object {
-        "@@observable": [Function],
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "@@observable": [Function],
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
   }
 >
-  <ConverterPage />
-</ContextProvider>
+  <ConverterPage>
+    <styled.div>
+      <div
+        className="sc-bqGGPW jzYdPK"
+      >
+        <styled.div>
+          <div
+            className="sc-dIvrsQ kIKOvq"
+          >
+            Converter:
+          </div>
+        </styled.div>
+        <InputValuesGroup
+          baseCurrency="UAH"
+          handleChangeCurrency={[Function]}
+          handleChangeInput={[Function]}
+        >
+          <Styled(Component)
+            className="m-auto"
+          >
+            <ForwardRef(InputGroup)
+              className="sc-fnVZcZ ceSpry m-auto"
+            >
+              <div
+                className="sc-fnVZcZ ceSpry m-auto input-group"
+              >
+                <Formik
+                  initialValues={
+                    Object {
+                      "amount": "",
+                      "currency": "UAH",
+                    }
+                  }
+                  onSubmit={[Function]}
+                  validate={[Function]}
+                >
+                  <form>
+                    <styled.input
+                      name="amount"
+                      onChange={[Function]}
+                      placeholder="input value"
+                      type="number"
+                      value=""
+                    >
+                      <input
+                        className="sc-hBMUJo gCIqZs"
+                        name="amount"
+                        onChange={[Function]}
+                        placeholder="input value"
+                        type="number"
+                        value=""
+                      />
+                    </styled.input>
+                    <styled.select
+                      defaultValue="UAH"
+                      name="currency"
+                      onChange={[Function]}
+                    >
+                      <select
+                        className="sc-bkbkJK bTnLfD"
+                        defaultValue="UAH"
+                        name="currency"
+                        onChange={[Function]}
+                      >
+                        <styled.option
+                          key="UAH"
+                          value="UAH"
+                        >
+                          <option
+                            className="sc-fFSPTT kWHaHm"
+                            value="UAH"
+                          >
+                            UAH
+                          </option>
+                        </styled.option>
+                        <styled.option
+                          key="BTC"
+                          value="BTC"
+                        >
+                          <option
+                            className="sc-fFSPTT kWHaHm"
+                            value="BTC"
+                          >
+                            BTC
+                          </option>
+                        </styled.option>
+                        <styled.option
+                          key="USD"
+                          value="USD"
+                        >
+                          <option
+                            className="sc-fFSPTT kWHaHm"
+                            value="USD"
+                          >
+                            USD
+                          </option>
+                        </styled.option>
+                        <styled.option
+                          key="RUR"
+                          value="RUR"
+                        >
+                          <option
+                            className="sc-fFSPTT kWHaHm"
+                            value="RUR"
+                          >
+                            RUR
+                          </option>
+                        </styled.option>
+                        <styled.option
+                          key="EUR"
+                          value="EUR"
+                        >
+                          <option
+                            className="sc-fFSPTT kWHaHm"
+                            value="EUR"
+                          >
+                            EUR
+                          </option>
+                        </styled.option>
+                      </select>
+                    </styled.select>
+                  </form>
+                </Formik>
+              </div>
+            </ForwardRef(InputGroup)>
+          </Styled(Component)>
+        </InputValuesGroup>
+        <ConvertCurrency
+          baseCurrency="UAH"
+          convertedValue={0}
+        >
+          <Styled(Component)
+            bordered={true}
+            hover={true}
+            striped={true}
+          >
+            <ForwardRef
+              bordered={true}
+              className="sc-iemWCZ cunngp"
+              hover={true}
+              striped={true}
+            >
+              <table
+                className="sc-iemWCZ cunngp table table-striped table-bordered table-hover"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      Converted Value
+                    </th>
+                    <th>
+                      Currency
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    key="BTC"
+                  >
+                    <td
+                      className="p-lg-3"
+                    >
+                      0.000
+                    </td>
+                    <td
+                      className="w-25 p-lg-2"
+                    >
+                      BTC
+                    </td>
+                  </tr>
+                  <tr
+                    key="USD"
+                  >
+                    <td
+                      className="p-lg-3"
+                    >
+                      0.000
+                    </td>
+                    <td
+                      className="w-25 p-lg-2"
+                    >
+                      USD
+                    </td>
+                  </tr>
+                  <tr
+                    key="RUR"
+                  >
+                    <td
+                      className="p-lg-3"
+                    >
+                      0.000
+                    </td>
+                    <td
+                      className="w-25 p-lg-2"
+                    >
+                      RUR
+                    </td>
+                  </tr>
+                  <tr
+                    key="EUR"
+                  >
+                    <td
+                      className="p-lg-3"
+                    >
+                      0.000
+                    </td>
+                    <td
+                      className="w-25 p-lg-2"
+                    >
+                      EUR
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </ForwardRef>
+          </Styled(Component)>
+        </ConvertCurrency>
+      </div>
+    </styled.div>
+  </ConverterPage>
+</Provider>
 `;
