@@ -334,11 +334,13 @@ exports[`Main layout component should render correctly 1`] = `
                                               >
                                                 <td
                                                   className="p-lg-3"
+                                                  id="convertedValue"
                                                 >
                                                   0.000
                                                 </td>
                                                 <td
                                                   className="w-25 p-lg-2"
+                                                  id="emblem"
                                                 >
                                                   USD
                                                 </td>
@@ -348,11 +350,13 @@ exports[`Main layout component should render correctly 1`] = `
                                               >
                                                 <td
                                                   className="p-lg-3"
+                                                  id="convertedValue"
                                                 >
                                                   0.000
                                                 </td>
                                                 <td
                                                   className="w-25 p-lg-2"
+                                                  id="emblem"
                                                 >
                                                   EUR
                                                 </td>
@@ -362,11 +366,13 @@ exports[`Main layout component should render correctly 1`] = `
                                               >
                                                 <td
                                                   className="p-lg-3"
+                                                  id="convertedValue"
                                                 >
                                                   0.000
                                                 </td>
                                                 <td
                                                   className="w-25 p-lg-2"
+                                                  id="emblem"
                                                 >
                                                   RUR
                                                 </td>
@@ -376,11 +382,13 @@ exports[`Main layout component should render correctly 1`] = `
                                               >
                                                 <td
                                                   className="p-lg-3"
+                                                  id="convertedValue"
                                                 >
                                                   0.000
                                                 </td>
                                                 <td
                                                   className="w-25 p-lg-2"
+                                                  id="emblem"
                                                 >
                                                   BTC
                                                 </td>

@@ -17,7 +17,6 @@ import { Currency, RootState, FavoriteState } from '../types';
 
 const CoursePage = (): JSX.Element | null => {
   const [favoriteCurrencies, setFavoriteCurrencies] = useState({});
-
   const { isLoadingCurrency: isLoading, currency: loadedCurrency } =
     useSelector((state: RootState) => state.currency);
 
@@ -65,7 +64,7 @@ const CoursePage = (): JSX.Element | null => {
         <tbody>
           {filteredCurrency.map((itemCurrency) => (
             <tr key={itemCurrency.ccy}>
-              <td className="col-3 w-25">{itemCurrency.ccy}</td>
+              <td className="ccy col-3 w-25">{itemCurrency.ccy}</td>
               <td>{itemCurrency.buy}</td>
               <td>
                 {itemCurrency.sale}

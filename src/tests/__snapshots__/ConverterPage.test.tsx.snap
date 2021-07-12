@@ -13,7 +13,46 @@ exports[`Converter page should render correctly 1`] = `
     }
   }
 >
-  <ConverterPage>
+  <ConverterPage
+    currency={
+      Object {
+        "currency": Array [
+          Object {
+            "baseCcy": "UAH",
+            "buy": "27.05000",
+            "ccy": "USD",
+            "sale": "27.45000",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "31.85000",
+            "ccy": "EUR",
+            "sale": "32.45000",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "1",
+            "ccy": "UAH",
+            "sale": "1",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "0.35000",
+            "ccy": "RUR",
+            "sale": "0.38000",
+          },
+          Object {
+            "baseCcy": "USD",
+            "buy": "31125.3298",
+            "ccy": "BTC",
+            "sale": "34401.6803",
+          },
+        ],
+        "error": "string",
+        "isLoadingCurrency": false,
+      }
+    }
+  >
     <styled.div>
       <div
         className="sc-bqGGPW jzYdPK"
@@ -78,28 +117,6 @@ exports[`Converter page should render correctly 1`] = `
                         onChange={[Function]}
                       >
                         <styled.option
-                          key="UAH"
-                          value="UAH"
-                        >
-                          <option
-                            className="sc-fFSPTT kWHaHm"
-                            value="UAH"
-                          >
-                            UAH
-                          </option>
-                        </styled.option>
-                        <styled.option
-                          key="BTC"
-                          value="BTC"
-                        >
-                          <option
-                            className="sc-fFSPTT kWHaHm"
-                            value="BTC"
-                          >
-                            BTC
-                          </option>
-                        </styled.option>
-                        <styled.option
                           key="USD"
                           value="USD"
                         >
@@ -108,6 +125,28 @@ exports[`Converter page should render correctly 1`] = `
                             value="USD"
                           >
                             USD
+                          </option>
+                        </styled.option>
+                        <styled.option
+                          key="EUR"
+                          value="EUR"
+                        >
+                          <option
+                            className="sc-fFSPTT kWHaHm"
+                            value="EUR"
+                          >
+                            EUR
+                          </option>
+                        </styled.option>
+                        <styled.option
+                          key="UAH"
+                          value="UAH"
+                        >
+                          <option
+                            className="sc-fFSPTT kWHaHm"
+                            value="UAH"
+                          >
+                            UAH
                           </option>
                         </styled.option>
                         <styled.option
@@ -122,14 +161,14 @@ exports[`Converter page should render correctly 1`] = `
                           </option>
                         </styled.option>
                         <styled.option
-                          key="EUR"
-                          value="EUR"
+                          key="BTC"
+                          value="BTC"
                         >
                           <option
                             className="sc-fFSPTT kWHaHm"
-                            value="EUR"
+                            value="BTC"
                           >
-                            EUR
+                            BTC
                           </option>
                         </styled.option>
                       </select>
@@ -170,45 +209,19 @@ exports[`Converter page should render correctly 1`] = `
                 </thead>
                 <tbody>
                   <tr
-                    key="BTC"
-                  >
-                    <td
-                      className="p-lg-3"
-                    >
-                      0.000
-                    </td>
-                    <td
-                      className="w-25 p-lg-2"
-                    >
-                      BTC
-                    </td>
-                  </tr>
-                  <tr
                     key="USD"
                   >
                     <td
                       className="p-lg-3"
+                      id="convertedValue"
                     >
                       0.000
                     </td>
                     <td
                       className="w-25 p-lg-2"
+                      id="emblem"
                     >
                       USD
-                    </td>
-                  </tr>
-                  <tr
-                    key="RUR"
-                  >
-                    <td
-                      className="p-lg-3"
-                    >
-                      0.000
-                    </td>
-                    <td
-                      className="w-25 p-lg-2"
-                    >
-                      RUR
                     </td>
                   </tr>
                   <tr
@@ -216,13 +229,47 @@ exports[`Converter page should render correctly 1`] = `
                   >
                     <td
                       className="p-lg-3"
+                      id="convertedValue"
                     >
                       0.000
                     </td>
                     <td
                       className="w-25 p-lg-2"
+                      id="emblem"
                     >
                       EUR
+                    </td>
+                  </tr>
+                  <tr
+                    key="RUR"
+                  >
+                    <td
+                      className="p-lg-3"
+                      id="convertedValue"
+                    >
+                      0.000
+                    </td>
+                    <td
+                      className="w-25 p-lg-2"
+                      id="emblem"
+                    >
+                      RUR
+                    </td>
+                  </tr>
+                  <tr
+                    key="BTC"
+                  >
+                    <td
+                      className="p-lg-3"
+                      id="convertedValue"
+                    >
+                      0.000
+                    </td>
+                    <td
+                      className="w-25 p-lg-2"
+                      id="emblem"
+                    >
+                      BTC
                     </td>
                   </tr>
                 </tbody>

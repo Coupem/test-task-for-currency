@@ -21,7 +21,7 @@ describe('Navigation component', () => {
 
   it('Test button component', () => {
     const mockCallBack = jest.fn();
-    const button = shallow(<NavButton onClick={mockCallBack}>Ok!</NavButton>);
+    const button = shallow(<NavButton onClick={mockCallBack} />);
     button.find('button').simulate('click');
     expect(mockCallBack.mock.calls.length).toEqual(1);
   });

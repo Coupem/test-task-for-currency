@@ -50,6 +50,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
     'no-console': [1, { allow: ['warn', 'error'] }],
     'import/no-unresolved': 'off',
     'react/jsx-filename-extension': [

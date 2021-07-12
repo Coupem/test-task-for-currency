@@ -1,41 +1,44 @@
-import { CommonWrapper, shallow, mount } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import React from 'react';
 import configureStore from 'redux-mock-store';
 
 import { Provider } from 'react-redux';
 import ConverterPage from '../pages/ConverterPage';
-
-import { initialState } from '../redux/ducks/currency';
+import { RootState } from '../types';
 
 describe('Converter page', () => {
-  const mockStore = configureStore();
-  let wrapper:
-    | CommonWrapper<{}, {}, React.Component<{}, {}, any>>
-    | cheerio.Cheerio;
-  let state;
+  let state: RootState;
+  let setUp;
+  let component: ReactWrapper;
+
   beforeAll(() => {
     state = {
       currency: {
         currency: [
-          { baseCcy: 'UAH', buy: '1', ccy: 'UAH', sale: '01' },
-          { baseCcy: 'USD', buy: '2', ccy: 'BTC', sale: '02' },
-          { baseCcy: 'UAH', buy: '3', ccy: 'USD', sale: '03' },
-          { baseCcy: 'UAH', buy: '4', ccy: 'RUR', sale: '04' },
-          { baseCcy: 'UAH', buy: '5', ccy: 'EUR', sale: '05' },
+          { ccy: 'USD', baseCcy: 'UAH', buy: '27.05000', sale: '27.45000' },
+          { ccy: 'EUR', baseCcy: 'UAH', buy: '31.85000', sale: '32.45000' },
+          { ccy: 'UAH', baseCcy: 'UAH', buy: '1', sale: '1' },
+          { ccy: 'RUR', baseCcy: 'UAH', buy: '0.35000', sale: '0.38000' },
+          { ccy: 'BTC', baseCcy: 'USD', buy: '31125.3298', sale: '34401.6803' },
         ],
         isLoadingCurrency: false,
         error: 'string',
       },
     };
-    wrapper = mount(
-      <Provider store={mockStore(state)}>
-        <ConverterPage />
-      </Provider>
-    );
+    const mockStore = configureStore();
+
+    setUp = (store: RootState) =>
+      mount(
+        <Provider store={mockStore(store)}>
+          <ConverterPage {...state} />
+        </Provider>
+      );
+
+    component = setUp(state);
   });
 
   it('should render correctly', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
   });
 });

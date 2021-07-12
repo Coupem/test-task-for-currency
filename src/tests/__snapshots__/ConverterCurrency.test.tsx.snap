@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Converter page should render correctly 1`] = `
+exports[`Converter page should have be render correctly 1`] = `
 <Provider
   store={
     Object {
@@ -14,8 +14,46 @@ exports[`Converter page should render correctly 1`] = `
   }
 >
   <ConvertCurrency
-    baseCurrency=""
-    convertedValue={0}
+    baseCurrency="string"
+    convertedValue={1}
+    currency={
+      Object {
+        "currency": Array [
+          Object {
+            "baseCcy": "UAH",
+            "buy": "27.05000",
+            "ccy": "USD",
+            "sale": "27.45000",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "31.85000",
+            "ccy": "EUR",
+            "sale": "32.45000",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "1",
+            "ccy": "UAH",
+            "sale": "1",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "0.35000",
+            "ccy": "RUR",
+            "sale": "0.38000",
+          },
+          Object {
+            "baseCcy": "USD",
+            "buy": "31125.3298",
+            "ccy": "BTC",
+            "sale": "34401.6803",
+          },
+        ],
+        "error": "string",
+        "isLoadingCurrency": false,
+      }
+    }
   >
     <Styled(Component)
       bordered={true}
@@ -43,59 +81,19 @@ exports[`Converter page should render correctly 1`] = `
           </thead>
           <tbody>
             <tr
-              key="UAH"
-            >
-              <td
-                className="p-lg-3"
-              >
-                0.000
-              </td>
-              <td
-                className="w-25 p-lg-2"
-              >
-                UAH
-              </td>
-            </tr>
-            <tr
-              key="BTC"
-            >
-              <td
-                className="p-lg-3"
-              >
-                0.000
-              </td>
-              <td
-                className="w-25 p-lg-2"
-              >
-                BTC
-              </td>
-            </tr>
-            <tr
               key="USD"
             >
               <td
                 className="p-lg-3"
+                id="convertedValue"
               >
-                0.000
+                0.036
               </td>
               <td
                 className="w-25 p-lg-2"
+                id="emblem"
               >
                 USD
-              </td>
-            </tr>
-            <tr
-              key="RUR"
-            >
-              <td
-                className="p-lg-3"
-              >
-                0.000
-              </td>
-              <td
-                className="w-25 p-lg-2"
-              >
-                RUR
               </td>
             </tr>
             <tr
@@ -103,13 +101,63 @@ exports[`Converter page should render correctly 1`] = `
             >
               <td
                 className="p-lg-3"
+                id="convertedValue"
+              >
+                0.031
+              </td>
+              <td
+                className="w-25 p-lg-2"
+                id="emblem"
+              >
+                EUR
+              </td>
+            </tr>
+            <tr
+              key="UAH"
+            >
+              <td
+                className="p-lg-3"
+                id="convertedValue"
+              >
+                1.000
+              </td>
+              <td
+                className="w-25 p-lg-2"
+                id="emblem"
+              >
+                UAH
+              </td>
+            </tr>
+            <tr
+              key="RUR"
+            >
+              <td
+                className="p-lg-3"
+                id="convertedValue"
+              >
+                2.632
+              </td>
+              <td
+                className="w-25 p-lg-2"
+                id="emblem"
+              >
+                RUR
+              </td>
+            </tr>
+            <tr
+              key="BTC"
+            >
+              <td
+                className="p-lg-3"
+                id="convertedValue"
               >
                 0.000
               </td>
               <td
                 className="w-25 p-lg-2"
+                id="emblem"
               >
-                EUR
+                BTC
               </td>
             </tr>
           </tbody>

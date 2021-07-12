@@ -1,21 +1,13 @@
 import * as React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
-import configureStore, { MockStoreEnhanced } from 'redux-mock-store';
+import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import toJson from 'enzyme-to-json';
-import { Store, AnyAction } from 'redux';
-import createStore from '../redux/index';
-import ConverterPage from '../pages/ConverterPage';
 import { RootState } from '../types';
 import App from '../App';
 
 let state: RootState;
-let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
+let component: ReactWrapper;
 let setUp;
-let mockStore: {
-  (arg0: RootState): Store<any, AnyAction>;
-  (state?: RootState): MockStoreEnhanced<unknown, {}>;
-};
 
 describe('Main layout component', () => {
   beforeAll(() => {
@@ -32,7 +24,7 @@ describe('Main layout component', () => {
         error: '',
       },
     };
-    mockStore = configureStore();
+    const mockStore = configureStore();
     setUp = (store: RootState) =>
       mount(
         <Provider store={mockStore(store)}>
@@ -44,7 +36,7 @@ describe('Main layout component', () => {
   it('should render correctly', () => {
     expect(component).toMatchSnapshot();
   });
-  it('render all 9 houses card', () => {
+  it('render all 4 column', () => {
     expect(component.find('Col')).toHaveLength(4);
   });
 });
