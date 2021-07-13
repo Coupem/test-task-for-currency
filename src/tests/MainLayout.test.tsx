@@ -2,6 +2,7 @@ import * as React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
+
 import { RootState } from '../types';
 import App from '../App';
 
@@ -33,9 +34,11 @@ describe('Main layout component', () => {
       );
     component = setUp(state);
   });
+
   it('should render correctly', () => {
     expect(component).toMatchSnapshot();
   });
+
   it('render all 4 column', () => {
     expect(component.find('Col')).toHaveLength(4);
   });

@@ -31,15 +31,8 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint'],
-  overrides: [
-    {
-      files: ['*.tsx'],
-      rules: {
-        'no-undef': 'off',
-      },
-    },
-  ],
   rules: {
+    camelcase: 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -50,7 +43,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
+    '@typescript-eslint/no-unused-vars': 'off',
     'no-console': [1, { allow: ['warn', 'error'] }],
     'import/no-unresolved': 'off',
     'react/jsx-filename-extension': [

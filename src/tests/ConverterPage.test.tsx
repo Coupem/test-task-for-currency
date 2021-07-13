@@ -2,8 +2,8 @@ import { mount, ReactWrapper } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import React from 'react';
 import configureStore from 'redux-mock-store';
-
 import { Provider } from 'react-redux';
+
 import ConverterPage from '../pages/ConverterPage';
 import { RootState } from '../types';
 

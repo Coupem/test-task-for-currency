@@ -12,6 +12,7 @@ describe('Converter page', () => {
   let props: PropConverter;
   let setUp;
   let component: ReactWrapper;
+
   beforeAll(() => {
     props = { baseCurrency: 'string', convertedValue: 1 };
     state = {
@@ -27,6 +28,7 @@ describe('Converter page', () => {
         error: 'string',
       },
     };
+
     const mockStore = configureStore();
 
     setUp = (store: RootState, propsApp: PropConverter) =>

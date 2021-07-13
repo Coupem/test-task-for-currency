@@ -3,6 +3,7 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import React from 'react';
 import toJson from 'enzyme-to-json';
+
 import CoursePage from '../pages/CoursePage';
 import { RootState } from '../types';
 import { NavButton } from '../styled';
@@ -25,6 +26,7 @@ describe('Course Page', () => {
         error: 'string',
       },
     };
+
     const mockStore = configureStore();
 
     setUp = (store: RootState) =>
