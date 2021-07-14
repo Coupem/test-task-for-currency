@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Course Page should render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <CoursePage
+    currency={
+      Object {
+        "currency": Array [
+          Object {
+            "baseCcy": "UAH",
+            "buy": "27.05000",
+            "ccy": "USD",
+            "sale": "27.45000",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "31.85000",
+            "ccy": "EUR",
+            "sale": "32.45000",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "0.35000",
+            "ccy": "RUR",
+            "sale": "0.38000",
+          },
+          Object {
+            "baseCcy": "USD",
+            "buy": "31125.3298",
+            "ccy": "BTC",
+            "sale": "34401.6803",
+          },
+        ],
+        "error": "string",
+        "isLoadingCurrency": false,
+      }
+    }
+  >
+    <styled.div>
+      <div
+        className="sc-dIsUp hQxPSx"
+      >
+        <styled.div>
+          <div
+            className="sc-iqAclL ljtKDH"
+          >
+            Valid Course:
+          </div>
+        </styled.div>
+        <FavoriteCurrency
+          favoriteCurrencies={Object {}}
+        >
+          <styled.div>
+            <div
+              className="sc-fujyAs iCXjma"
+            >
+              <styled.div>
+                <div
+                  className="sc-crzoAE NUbRz"
+                >
+                  Favorite Currency:
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-kEqXSa ezRayN"
+                >
+                  NO CURRENCY
+                </div>
+              </styled.div>
+            </div>
+          </styled.div>
+        </FavoriteCurrency>
+        <Styled(Component)
+          bordered={true}
+          className="p-lg-3 "
+          hover={true}
+          striped={true}
+        >
+          <ForwardRef
+            bordered={true}
+            className="sc-jrsJWt hCIPZl p-lg-3 "
+            hover={true}
+            striped={true}
+          >
+            <table
+              className="sc-jrsJWt hCIPZl p-lg-3  table table-striped table-bordered table-hover"
+            >
+              <thead>
+                <tr>
+                  <th>
+                    Currency
+                  </th>
+                  <th>
+                    Buy
+                  </th>
+                  <th>
+                    Sale
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  key="USD"
+                >
+                  <td
+                    className="ccy col-3 w-25"
+                  >
+                    USD
+                  </td>
+                  <td>
+                    27.05000
+                  </td>
+                  <td>
+                    27.45000
+                    <styled.button
+                      onClick={[Function]}
+                    >
+                      <button
+                        className="sc-iCoGMd gGPFyA"
+                        onClick={[Function]}
+                      >
+                        best
+                      </button>
+                    </styled.button>
+                  </td>
+                </tr>
+                <tr
+                  key="EUR"
+                >
+                  <td
+                    className="ccy col-3 w-25"
+                  >
+                    EUR
+                  </td>
+                  <td>
+                    31.85000
+                  </td>
+                  <td>
+                    32.45000
+                    <styled.button
+                      onClick={[Function]}
+                    >
+                      <button
+                        className="sc-iCoGMd gGPFyA"
+                        onClick={[Function]}
+                      >
+                        best
+                      </button>
+                    </styled.button>
+                  </td>
+                </tr>
+                <tr
+                  key="RUR"
+                >
+                  <td
+                    className="ccy col-3 w-25"
+                  >
+                    RUR
+                  </td>
+                  <td>
+                    0.35000
+                  </td>
+                  <td>
+                    0.38000
+                    <styled.button
+                      onClick={[Function]}
+                    >
+                      <button
+                        className="sc-iCoGMd gGPFyA"
+                        onClick={[Function]}
+                      >
+                        best
+                      </button>
+                    </styled.button>
+                  </td>
+                </tr>
+                <tr
+                  key="BTC"
+                >
+                  <td
+                    className="ccy col-3 w-25"
+                  >
+                    BTC
+                  </td>
+                  <td>
+                    31125.3298
+                  </td>
+                  <td>
+                    34401.6803
+                    <styled.button
+                      onClick={[Function]}
+                    >
+                      <button
+                        className="sc-iCoGMd gGPFyA"
+                        onClick={[Function]}
+                      >
+                        best
+                      </button>
+                    </styled.button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </ForwardRef>
+        </Styled(Component)>
+      </div>
+    </styled.div>
+  </CoursePage>
+</Provider>
+`;

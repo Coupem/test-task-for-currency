@@ -1,0 +1,432 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main layout component should render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <App
+    currency={
+      Object {
+        "currency": Array [
+          Object {
+            "baseCcy": "UAH",
+            "buy": "27.05000",
+            "ccy": "USD",
+            "sale": "27.45000",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "31.85000",
+            "ccy": "EUR",
+            "sale": "32.45000",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "1",
+            "ccy": "UAH",
+            "sale": "1",
+          },
+          Object {
+            "baseCcy": "UAH",
+            "buy": "0.35000",
+            "ccy": "RUR",
+            "sale": "0.38000",
+          },
+          Object {
+            "baseCcy": "USD",
+            "buy": "31125.3298",
+            "ccy": "BTC",
+            "sale": "34401.6803",
+          },
+        ],
+        "error": "",
+        "isLoadingCurrency": false,
+      }
+    }
+  >
+    <Styled(Container)
+      fluid={true}
+    >
+      <Container
+        className="sc-gKAaRy jfZWws"
+        fluid={true}
+      >
+        <div
+          className="sc-gKAaRy jfZWws container-fluid"
+        >
+          <Header>
+            <Styled(Row)>
+              <Row
+                className="sc-gtsrHT gavoQv"
+                noGutters={false}
+              >
+                <div
+                  className="sc-gtsrHT gavoQv row"
+                >
+                  Best converter & valid currency course
+                </div>
+              </Row>
+            </Styled(Row)>
+          </Header>
+          <Styled(Col)>
+            <Col
+              className="sc-jSFjdj LTxjo"
+            >
+              <div
+                className="sc-jSFjdj LTxjo col"
+              >
+                <BrowserRouter>
+                  <Router
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "createHref": [Function],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                  >
+                    <Navigation>
+                      <Styled(Col)>
+                        <Col
+                          className="sc-hKFxyN kPjEtD"
+                        >
+                          <div
+                            className="sc-hKFxyN kPjEtD col"
+                          >
+                            <styled.button
+                              onClick={[Function]}
+                              primary={true}
+                            >
+                              <button
+                                className="sc-dlnjwi ghwRTG"
+                                onClick={[Function]}
+                              >
+                                Converter
+                              </button>
+                            </styled.button>
+                            <styled.button
+                              onClick={[Function]}
+                              primary={false}
+                            >
+                              <button
+                                className="sc-dlnjwi iqEpDi"
+                                onClick={[Function]}
+                              >
+                                Course
+                              </button>
+                            </styled.button>
+                          </div>
+                        </Col>
+                      </Styled(Col)>
+                    </Navigation>
+                    <Styled(Col)
+                      sm={10}
+                    >
+                      <Col
+                        className="sc-eCApnc fWGPtT"
+                        sm={10}
+                      >
+                        <div
+                          className="sc-eCApnc fWGPtT col-sm-10"
+                        >
+                          <Switch>
+                            <Route
+                              computedMatch={
+                                Object {
+                                  "isExact": true,
+                                  "params": Object {},
+                                  "path": "/",
+                                  "url": "/",
+                                }
+                              }
+                              exact={true}
+                              location={
+                                Object {
+                                  "hash": "",
+                                  "pathname": "/",
+                                  "search": "",
+                                  "state": undefined,
+                                }
+                              }
+                              path="/"
+                              render={[Function]}
+                            >
+                              <ConverterPage>
+                                <styled.div>
+                                  <div
+                                    className="sc-bqGGPW jzYdPK"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="sc-dIvrsQ kIKOvq"
+                                      >
+                                        Converter:
+                                      </div>
+                                    </styled.div>
+                                    <InputValuesGroup
+                                      baseCurrency="UAH"
+                                      handleChangeCurrency={[Function]}
+                                      handleChangeInput={[Function]}
+                                    >
+                                      <Styled(Component)
+                                        className="m-auto"
+                                      >
+                                        <ForwardRef(InputGroup)
+                                          className="sc-fnVZcZ ceSpry m-auto"
+                                        >
+                                          <div
+                                            className="sc-fnVZcZ ceSpry m-auto input-group"
+                                          >
+                                            <Formik
+                                              initialValues={
+                                                Object {
+                                                  "amount": "",
+                                                  "currency": "UAH",
+                                                }
+                                              }
+                                              onSubmit={[Function]}
+                                              validate={[Function]}
+                                            >
+                                              <form>
+                                                <styled.input
+                                                  name="amount"
+                                                  onChange={[Function]}
+                                                  placeholder="input value"
+                                                  type="number"
+                                                  value=""
+                                                >
+                                                  <input
+                                                    className="sc-hBMUJo gCIqZs"
+                                                    name="amount"
+                                                    onChange={[Function]}
+                                                    placeholder="input value"
+                                                    type="number"
+                                                    value=""
+                                                  />
+                                                </styled.input>
+                                                <styled.select
+                                                  defaultValue="UAH"
+                                                  name="currency"
+                                                  onChange={[Function]}
+                                                >
+                                                  <select
+                                                    className="sc-bkbkJK bTnLfD"
+                                                    defaultValue="UAH"
+                                                    name="currency"
+                                                    onChange={[Function]}
+                                                  >
+                                                    <styled.option
+                                                      key="USD"
+                                                      value="USD"
+                                                    >
+                                                      <option
+                                                        className="sc-fFSPTT kWHaHm"
+                                                        value="USD"
+                                                      >
+                                                        USD
+                                                      </option>
+                                                    </styled.option>
+                                                    <styled.option
+                                                      key="EUR"
+                                                      value="EUR"
+                                                    >
+                                                      <option
+                                                        className="sc-fFSPTT kWHaHm"
+                                                        value="EUR"
+                                                      >
+                                                        EUR
+                                                      </option>
+                                                    </styled.option>
+                                                    <styled.option
+                                                      key="UAH"
+                                                      value="UAH"
+                                                    >
+                                                      <option
+                                                        className="sc-fFSPTT kWHaHm"
+                                                        value="UAH"
+                                                      >
+                                                        UAH
+                                                      </option>
+                                                    </styled.option>
+                                                    <styled.option
+                                                      key="RUR"
+                                                      value="RUR"
+                                                    >
+                                                      <option
+                                                        className="sc-fFSPTT kWHaHm"
+                                                        value="RUR"
+                                                      >
+                                                        RUR
+                                                      </option>
+                                                    </styled.option>
+                                                    <styled.option
+                                                      key="BTC"
+                                                      value="BTC"
+                                                    >
+                                                      <option
+                                                        className="sc-fFSPTT kWHaHm"
+                                                        value="BTC"
+                                                      >
+                                                        BTC
+                                                      </option>
+                                                    </styled.option>
+                                                  </select>
+                                                </styled.select>
+                                              </form>
+                                            </Formik>
+                                          </div>
+                                        </ForwardRef(InputGroup)>
+                                      </Styled(Component)>
+                                    </InputValuesGroup>
+                                    <ConvertCurrency
+                                      baseCurrency="UAH"
+                                      convertedValue={0}
+                                    >
+                                      <Styled(Component)
+                                        bordered={true}
+                                        hover={true}
+                                        striped={true}
+                                      >
+                                        <ForwardRef
+                                          bordered={true}
+                                          className="sc-iemWCZ cunngp"
+                                          hover={true}
+                                          striped={true}
+                                        >
+                                          <table
+                                            className="sc-iemWCZ cunngp table table-striped table-bordered table-hover"
+                                          >
+                                            <thead>
+                                              <tr>
+                                                <th>
+                                                  Converted Value
+                                                </th>
+                                                <th>
+                                                  Currency
+                                                </th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr
+                                                key="USD"
+                                              >
+                                                <td
+                                                  className="p-lg-3"
+                                                  id="convertedValue"
+                                                >
+                                                  0.000
+                                                </td>
+                                                <td
+                                                  className="w-25 p-lg-2"
+                                                  id="emblem"
+                                                >
+                                                  USD
+                                                </td>
+                                              </tr>
+                                              <tr
+                                                key="EUR"
+                                              >
+                                                <td
+                                                  className="p-lg-3"
+                                                  id="convertedValue"
+                                                >
+                                                  0.000
+                                                </td>
+                                                <td
+                                                  className="w-25 p-lg-2"
+                                                  id="emblem"
+                                                >
+                                                  EUR
+                                                </td>
+                                              </tr>
+                                              <tr
+                                                key="RUR"
+                                              >
+                                                <td
+                                                  className="p-lg-3"
+                                                  id="convertedValue"
+                                                >
+                                                  0.000
+                                                </td>
+                                                <td
+                                                  className="w-25 p-lg-2"
+                                                  id="emblem"
+                                                >
+                                                  RUR
+                                                </td>
+                                              </tr>
+                                              <tr
+                                                key="BTC"
+                                              >
+                                                <td
+                                                  className="p-lg-3"
+                                                  id="convertedValue"
+                                                >
+                                                  0.000
+                                                </td>
+                                                <td
+                                                  className="w-25 p-lg-2"
+                                                  id="emblem"
+                                                >
+                                                  BTC
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </ForwardRef>
+                                      </Styled(Component)>
+                                    </ConvertCurrency>
+                                  </div>
+                                </styled.div>
+                              </ConverterPage>
+                            </Route>
+                          </Switch>
+                        </div>
+                      </Col>
+                    </Styled(Col)>
+                  </Router>
+                </BrowserRouter>
+              </div>
+            </Col>
+          </Styled(Col)>
+          <Footer>
+            <Styled(Col)>
+              <Col
+                className="sc-bdnxRM dopHoK"
+              >
+                <div
+                  className="sc-bdnxRM dopHoK col"
+                >
+                  © 2021 My. Built My Theme.
+                </div>
+              </Col>
+            </Styled(Col)>
+          </Footer>
+        </div>
+      </Container>
+    </Styled(Container)>
+  </App>
+</Provider>
+`;
