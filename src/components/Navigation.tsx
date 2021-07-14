@@ -19,12 +19,14 @@ const Navigation = (): JSX.Element => {
   return (
     <NavigationComponent>
       <NavButton
+        data-testid="convert"
         primary={pathname === CONVERTER_URL}
         onClick={onClickButtonConverter}
       >
         Converter
       </NavButton>
       <NavButton
+        data-testid="course"
         primary={pathname === COURSE_URL}
         onClick={onClickButtonCourse}
       >
