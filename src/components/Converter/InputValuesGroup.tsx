@@ -59,6 +59,7 @@ const InputValuesGroup = ({
               name="amount"
               onChange={handleInputValue(handleChange)}
               value={values.amount}
+              data-testid="input"
             />
 
             {errors.amount && <ErrorContainer>{errors.amount}</ErrorContainer>}

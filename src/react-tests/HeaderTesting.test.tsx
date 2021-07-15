@@ -1,13 +1,15 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+
 import { Header } from '../components';
 
 describe('Header', () => {
-  it('correct render', () => {
+  it('html markup', () => {
     render(<Header />);
     expect(screen.debug());
   });
+
   it('correct name', () => {
     render(<Header />);
     expect(

@@ -116,22 +116,26 @@ exports[`Main layout component should render correctly 1`] = `
                             className="sc-hKFxyN kPjEtD col"
                           >
                             <styled.button
+                              data-testid="convert"
                               onClick={[Function]}
                               primary={true}
                             >
                               <button
                                 className="sc-dlnjwi ghwRTG"
+                                data-testid="convert"
                                 onClick={[Function]}
                               >
                                 Converter
                               </button>
                             </styled.button>
                             <styled.button
+                              data-testid="course"
                               onClick={[Function]}
                               primary={false}
                             >
                               <button
                                 className="sc-dlnjwi iqEpDi"
+                                data-testid="course"
                                 onClick={[Function]}
                               >
                                 Course
@@ -211,6 +215,7 @@ exports[`Main layout component should render correctly 1`] = `
                                             >
                                               <form>
                                                 <styled.input
+                                                  data-testid="input"
                                                   name="amount"
                                                   onChange={[Function]}
                                                   placeholder="input value"
@@ -219,6 +224,7 @@ exports[`Main layout component should render correctly 1`] = `
                                                 >
                                                   <input
                                                     className="sc-hBMUJo gCIqZs"
+                                                    data-testid="input"
                                                     name="amount"
                                                     onChange={[Function]}
                                                     placeholder="input value"

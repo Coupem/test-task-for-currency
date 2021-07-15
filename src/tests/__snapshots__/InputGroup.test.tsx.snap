@@ -77,6 +77,7 @@ exports[`Footer should render correctly 1`] = `
           >
             <form>
               <styled.input
+                data-testid="input"
                 name="amount"
                 onChange={[Function]}
                 placeholder="input value"
@@ -85,6 +86,7 @@ exports[`Footer should render correctly 1`] = `
               >
                 <input
                   className="sc-hBMUJo gCIqZs"
+                  data-testid="input"
                   name="amount"
                   onChange={[Function]}
                   placeholder="input value"
