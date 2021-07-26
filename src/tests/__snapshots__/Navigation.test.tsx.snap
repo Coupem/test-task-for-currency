@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation component should render correctly 1`] = `
+<Styled(Col)>
+  <styled.button
+    data-testid="convert"
+    onClick={[Function]}
+    primary={false}
+  >
+    Converter
+  </styled.button>
+  <styled.button
+    data-testid="course"
+    onClick={[Function]}
+    primary={false}
+  >
+    Course
+  </styled.button>
+</Styled(Col)>
+`;
