@@ -15,7 +15,7 @@ export const NavButton = styled.button<Primary>`
   color: ${colorWhite};
   font-size: 20px;
   font-weight: 600;
-  border-radius: 15px 5px 5px 15px;
+  border-radius: 8px 0 0 8px;
   border-top: 3px solid ${colorWhite};
   border-bottom: 2px solid ${colorWhite};
   background-color: ${(props) => (props.color ? props.color : colorBlue)};

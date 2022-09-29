@@ -26,7 +26,7 @@ const ConvertCurrency = ({
         {filteredCurrency.map((itemCurrency) => (
           <tr key={itemCurrency.ccy}>
             <td id="convertedValue" className="p-lg-3">
-              {(convertedValue / parseFloat(itemCurrency.sale)).toFixed(3)}
+              {(convertedValue / +itemCurrency.sale).toFixed(3)}
             </td>
             <td id="emblem" className="w-25 p-lg-2">
               {itemCurrency.ccy}

@@ -1,43 +1,50 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { InputGroup, Table } from 'react-bootstrap';
 import { paddingSmallScreen } from '../media';
 import { colorBlue, colorRed } from '../colors';
 
 export const ConverterContainer = styled.div`
   max-width: 1500px;
-  height: 800px;
+  height: 100%;
   margin: auto;
-  border: 5px solid ${colorBlue};
+  border: none;
   border-radius: 15px;
-  box-shadow: 0 -3px 29px -4px;
   ${paddingSmallScreen}
 `;
 
 export const ErrorContainer = styled.div`
   color: ${colorRed};
   position: absolute;
-  left: 50px;
+  bottom: 15px;
   font-size: 15px;
 `;
 
 export const InputContainer = styled.input`
-  height: 30px;
+  height: 45px;
   border: 1px solid ${colorBlue};
-  border-radius: 3px;
+  border-radius: 3px 0 0 3px;
+  max-width: 300px;
+  width: 100%;
   font-weight: 500;
+  font-size: 22px;
+  padding-left: 10px;
   position: relative;
+
   &:focus-visible {
-    border: 3px solid ${colorBlue};
-    border-radius: 5px;
+    border: 2px solid ${colorBlue};
     outline: none;
   }
 `;
 
 export const InputGroupContainer = styled(InputGroup)`
   max-width: 350px;
-  padding: 100px 0;
+  padding: 100px 0 40px 0;
   display: flex;
   justify-content: center;
+
+  & form {
+    display: flex;
+  }
 `;
 
 export const OptionContainer = styled.option`
@@ -46,26 +53,26 @@ export const OptionContainer = styled.option`
 `;
 
 export const SelectContainer = styled.select`
-  height: 30px;
+  height: 45px;
   background-color: ${colorBlue};
   color: white;
   border: 1px solid ${colorBlue};
   font-weight: 500;
-  border-radius: 3px;
+  border-radius: 0 3px 3px 0;
   line-height: 100px;
+
   &:focus-visible {
-    border: 3px solid ${colorBlue};
-    border-radius: 5px;
+    border: 1px solid ${colorBlue};
     outline: none;
   }
 `;
 
 export const TableCurrencyContainer = styled(Table)`
   max-width: 800px;
-  margin: 50px auto;
-  border: 3px solid ${colorBlue};
+  margin: 80px auto;
+  border: 2px solid ${colorBlue};
   font-size: 20px;
-  box-shadow: 5px 9px 30px -6px;
+  box-shadow: 5px 9px 30px -18px;
   font-weight: 500;
 `;
 

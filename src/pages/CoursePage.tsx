@@ -52,7 +52,6 @@ const CoursePage = (): JSX.Element | null => {
   return (
     <ValidCourseContainer>
       <TitleCourseComponent>Valid Course:</TitleCourseComponent>
-      <FavoriteCurrency favoriteCurrencies={favoriteCurrencies} />
       <ListTableCurrency striped bordered hover className="p-lg-3 ">
         <thead>
           <tr>
@@ -76,6 +75,7 @@ const CoursePage = (): JSX.Element | null => {
           ))}
         </tbody>
       </ListTableCurrency>
+      <FavoriteCurrency favoriteCurrencies={favoriteCurrencies} />
     </ValidCourseContainer>
   );
 };

@@ -2,13 +2,15 @@ import React, { ChangeEventHandler, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { InputValuesGroup, ConvertCurrency } from '../components';
-import { RootState } from '../types';
-import { defaultCurrency } from '../constants';
-import { ConverterContainer, TitleConverterContainer } from '../styled';
+import { defaultCurrency, availableCurrency } from '../constants';
+
 import { getConvertToNational } from '../redux/ducks/selectors';
+import { RootState } from '../types';
+
+import { ConverterContainer, TitleConverterContainer } from '../styled';
 
 const ConverterPage = (): JSX.Element | null => {
-  const [inputValue, setInputValue] = useState(0);
+  const [inputValue, setInputValue] = useState<number>(0);
   const [baseCurrency, setBaseCurrency] = useState(defaultCurrency);
 
   const { isLoadingCurrency: isLoading } = useSelector(
@@ -26,7 +28,20 @@ const ConverterPage = (): JSX.Element | null => {
   };
 
   const handleInputValue = (value: string) => {
-    setInputValue(parseInt(value, 10));
+    if (value.includes('in')) {
+      const stringParse = value.split('in')[0];
+      const currencyFromString = stringParse.split(' ')[1].substring(0, 3);
+      const valueFromString = stringParse.split(' ')[0].substring(1);
+
+      if (availableCurrency.includes(currencyFromString)) {
+        setBaseCurrency(currencyFromString.toUpperCase());
+        setInputValue(+valueFromString);
+      }
+
+      return;
+    }
+
+    setInputValue(+value);
   };
 
   if (isLoading) {

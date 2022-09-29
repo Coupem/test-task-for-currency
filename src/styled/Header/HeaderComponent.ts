@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Row } from 'react-bootstrap';
 import { headerSmallScreen } from '../media';
 import { colorBlue, colorWhite } from '../colors';

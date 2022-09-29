@@ -17,3 +17,5 @@ export const defaultCurrency = 'UAH';
 export const CONVERTER_URL = '/';
 
 export const COURSE_URL = '/course';
+
+export const availableCurrency = ['uah', 'usd', 'eur', 'btc'];

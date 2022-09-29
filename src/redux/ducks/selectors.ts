@@ -18,14 +18,13 @@ export const getConvertToNational = (
     );
 
     if (currencyBTC) {
-      convertedValue = enteredNumber * parseFloat(currencyBTC.buy);
+      convertedValue = enteredNumber * +currencyBTC.buy;
     }
   }
 
   listCurrency.forEach((itemCurrency) => {
     if (baseCurrency === itemCurrency.ccy) {
-      convertedValue =
-        convertedValue * enteredNumber * parseFloat(itemCurrency.buy);
+      convertedValue = convertedValue * enteredNumber * +itemCurrency.buy;
     }
   });
 

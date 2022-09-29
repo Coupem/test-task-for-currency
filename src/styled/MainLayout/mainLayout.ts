@@ -1,25 +1,26 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Col, Container } from 'react-bootstrap';
-import { blockSmallScreen } from '../media';
+import { blockSmallScreen, interactionSmallScreen } from '../media';
 import { colorBlue } from '../colors';
 
 export const InteractionContainerWrapper = styled(Col)`
-  border-radius: 25px;
-  height: 1000px;
+  border-radius: 15px 0 0 15px;
+  min-height: 100vh;
   background-color: white;
-  padding-top: 100px;
+  padding-top: 0;
+
+  ${interactionSmallScreen}
 `;
 
 export const MainContentWrapper = styled(Col)`
   display: flex;
-  height: 1000px;
+  min-height: 100vh;
   padding: 0;
 
   ${blockSmallScreen}
 `;
 
 export const MainLayoutContainer = styled(Container)`
-  height: 1200px;
   padding: 0;
   background-color: ${colorBlue};
   margin: 0;

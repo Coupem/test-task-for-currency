@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Col } from 'react-bootstrap';
 import { footerSmallScreen } from '../media';
 import { colorBlue, colorWhite } from '../colors';
 
 export const FooterComponent = styled(Col)`
   background-color: ${colorBlue};
-  height: 100px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;

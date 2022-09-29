@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { ListGroup, Table } from 'react-bootstrap';
 import {
   blockSmallScreen,
@@ -27,11 +27,10 @@ export const FavoriteCurrencyWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   max-width: 1000px;
-  margin: auto;
-  border: 3px solid ${colorBlue};
+  border: 2px solid ${colorBlue};
   font-size: 20px;
-  margin-top: 40px;
-  border-radius: 5px;
+  margin: 40px auto 0 auto;
+
   ${blockSmallScreen}
 `;
 
@@ -43,10 +42,10 @@ export const ListGroupContainer = styled(ListGroup)`
 
 export const ListTableCurrency = styled(Table)`
   max-width: 800px;
-  margin: 50px auto;
-  border: 3px solid ${colorBlue};
+  margin: 80px auto;
+  border: 2px solid ${colorBlue};
   font-size: 20px;
-  box-shadow: 5px 9px 30px -6px;
+  box-shadow: 5px 9px 30px -18px;
   position: relative;
   ${fontSmallScreen}
 `;
@@ -75,10 +74,7 @@ export const TitleFavoriteCurrency = styled.div`
 
 export const ValidCourseContainer = styled.div`
   max-width: 1500px;
-  height: 800px;
+  height: 100%;
   margin: auto;
-  border: 5px solid ${colorBlue};
-  border-radius: 15px;
-  box-shadow: 0 -3px 29px -4px;
   font-weight: 600;
 `;

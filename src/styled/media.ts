@@ -5,11 +5,15 @@ export const buttonBestSmallScreen = `${mediaSmallScreen}{
     background-color: #086d9f;
     height: 15px;
     width: 10px;
-    }`;
+}`;
+
+export const interactionSmallScreen = `${mediaSmallScreen}{
+    border-radius: 20px;
+}`;
 
 export const blockSmallScreen = `${mediaSmallScreen}{ 
     display: block; padding: 0 20px;
-    } `;
+}`;
 
 export const listGroupSmallScreen = `${mediaSmallScreen}{ 
     font-size: 10px;
@@ -17,18 +21,18 @@ export const listGroupSmallScreen = `${mediaSmallScreen}{
     padding: 0;
     line-height: 0;
     font-weight: 700;
-     }`;
+}`;
 
 export const fontSmallScreen = `${mediaSmallScreen}{font-size: 12px;}`;
 
 export const footerSmallScreen = `${mediaSmallScreen}{
     font-size: 25px;
     margin-top: 150px;
-  }`;
+}`;
 
 export const headerSmallScreen = `${mediaSmallScreen}{
     font-size: 25px;
-  }`;
+}`;
 
 export const navButtonSmallScreen = `${mediaSmallScreen}{
     border: 2px solid white;

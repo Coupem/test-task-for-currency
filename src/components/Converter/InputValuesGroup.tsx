@@ -1,7 +1,10 @@
 import React, { ChangeEventHandler, ChangeEvent } from 'react';
-import PropTypes from 'prop-types';
-import { Formik } from 'formik';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import { Formik } from 'formik';
+
+import { RootState, PropsInput, ErrorsHandler } from '../../types';
 
 import {
   InputGroupContainer,
@@ -10,7 +13,6 @@ import {
   ErrorContainer,
   OptionContainer,
 } from '../../styled';
-import { RootState, PropsInput, ErrorsHandler } from '../../types';
 
 const InputValuesGroup = ({
   baseCurrency,
@@ -27,9 +29,11 @@ const InputValuesGroup = ({
       handleChangeInput(event.target.value);
 
       const inputValidation = event;
-      if (inputValidation.target.value.length > 10) {
+
+      if (inputValidation.target.value.length > 25) {
         return;
       }
+
       formikHandleChange(inputValidation);
     };
 
@@ -41,10 +45,11 @@ const InputValuesGroup = ({
           const errors: ErrorsHandler = {};
 
           if (!values.amount) {
-            errors.amount = 'Please input number value';
-          } else if (!/-?\d+(\.\d{0,})?/i.test(values.amount)) {
+            errors.amount = 'Please input value';
+          } else if (!/([^']*)/i.test(values.amount)) {
             errors.amount = 'Invalid value';
           }
+
           return errors;
         }}
         onSubmit={() => {
@@ -54,8 +59,8 @@ const InputValuesGroup = ({
         {({ values, errors, handleChange }) => (
           <form>
             <InputContainer
-              placeholder="input value"
-              type="number"
+              placeholder="value"
+              type="text"
               name="amount"
               onChange={handleInputValue(handleChange)}
               value={values.amount}
@@ -64,8 +69,9 @@ const InputValuesGroup = ({
             {errors.amount && <ErrorContainer>{errors.amount}</ErrorContainer>}
             <SelectContainer
               onChange={handleChangeCurrency}
-              defaultValue={values.currency}
               name="currency"
+              id="select"
+              value={baseCurrency}
             >
               {loadedCurrency.map((value) => (
                 <OptionContainer key={value.ccy} value={value.ccy}>
